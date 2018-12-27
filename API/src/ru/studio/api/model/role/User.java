@@ -1,5 +1,7 @@
 package ru.studio.api.model.role;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +10,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public abstract class User
+public abstract class User implements Serializable
 {
 	private Integer id;
 	private String login;

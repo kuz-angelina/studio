@@ -1,6 +1,6 @@
 -- create database: studoiDB
 
-CREATE DATABASE "studoiDB"
+CREATE DATABASE "studioDB"
     WITH
     OWNER = postgres
     ENCODING = 'UTF8'

@@ -2,18 +2,12 @@
 
 package ru.studio.server.service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.caucho.hessian.server.HessianServlet;
 
-import ru.studio.api.model.role.Client;
-import ru.studio.api.model.role.Manager;
-import ru.studio.api.model.role.Tailor;
 import ru.studio.api.model.role.User;
 import ru.studio.api.services.UserService;
-
+import ru.studio.server.dao.UserDao;
+import ru.studio.server.dao.UserDaoImp;
 
 
 /**
@@ -22,6 +16,9 @@ import ru.studio.api.services.UserService;
 
 public class UserServiceImpl extends HessianServlet implements UserService
 {
+
+	UserDao userDao = new UserDaoImp();
+
 	@Override
 	public boolean createUser()
 	{
@@ -37,17 +34,19 @@ public class UserServiceImpl extends HessianServlet implements UserService
 	@Override
 	public User getUserByName(String name)
 	{
-		Map<String, User> users = new HashMap<>();
+//		Map<String, User> users = new HashMap<>();
+//
+//		Client client = new Client(1, "Vasya", "123", "Vasya", "emailV", "777");
+//		Manager manager = new Manager(1, "Petya", "123", "Petya");
+//		Tailor tailor = new Tailor(1, "Kolya", "123", "Kolya", "999", "addrK", 2, new Date());
+//
+//		users.put(client.getName(), client);
+//		users.put(manager.getName(), manager);
+//		users.put(tailor.getName(), tailor);
 
-		Client client = new Client(1, "Vasya", "123", "Vasya", "emailV", "777");
-		Manager manager = new Manager(1, "Petya", "123", "Petya");
-		Tailor tailor = new Tailor(1, "Kolya", "123", "Kolya", "999", "addrK", 2, new Date());
+		User user = userDao.getUserByName(name);
 
-		users.put(client.getName(), client);
-		users.put(manager.getName(), manager);
-		users.put(tailor.getName(), tailor);
-
-		return users.getOrDefault(name, null);
+		return user;
 	}
 
 	@Override

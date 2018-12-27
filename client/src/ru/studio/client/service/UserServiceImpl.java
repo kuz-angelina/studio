@@ -12,7 +12,7 @@ import ru.studio.api.model.role.User;
  */
 public class UserServiceImpl implements UserService
 {
-	String url = "http://localhost:8080/user";
+	String url = "http://localhost:8080/unnamed/user";
 	HessianProxyFactory factory = new HessianProxyFactory();
 	UserService userService;
 
