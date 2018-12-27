@@ -6,40 +6,50 @@ import java.awt.*;
 public class GUI_Manager {
     public static void main(String[] args) {
     JFrame frame = new JFrame("Менеджер");
-    JTabbedPane tabbedPane = new JTabbedPane();
+    JButton button = new JButton("Офромить");
+    JButton button1 = new JButton("Офромить");
 
-    JLabel listOrder = new JLabel("Список заказов: ");
-    JButton information = new JButton("Информация");
+    JTabbedPane tabbedPane = new JTabbedPane();
+    StudioTab tabCheckout = new StudioTab();
+    StudioTab tailorData = new StudioTab();
+    StudioTab listOrder = new StudioTab();
+    JLabel orders = new JLabel("Список заказов: ");
+
+
     String[] columnNames = {
-            "Number",
-            "Name",
-            "Order"
+            "№",
+            "ФИО",
+            "Телефон",
+            "Что делать",
+            "Тип одежды",
+            "Сформировать заказ"
+
     };
     String[][] data = {
-            {"1", "Иванов Иван Иванович", "Button", ""},
-            {"2", "Михеенко Алиса Дмитриевна", "Button", ""},
+                {"1", "Соловьева А.Д.","8-996-345-13-54","Пошив","Юбка", String.valueOf(button)},
+                {"2", "Иванов И.И.","8-923-234-53-21","Ремонт","Куртка", String.valueOf(button1)},
     };
     JTable table = new JTable(data,columnNames);
 
-        frame.setLayout(new BorderLayout());
-    //  tabbedPane.addTab("Оформить заказ", tabMain);
-    //tabbedPane.addTab("Данные о портных", tailorData);
-    //tabbedPane.addTab("Список заказов", orderList);
+    frame.setLayout(new BorderLayout());
 
-    JPanel mainPanel = new JPanel(new GridLayout(2,1));
-    JPanel panel = new JPanel(new GridLayout(1,1));
+    tabbedPane.addTab("Оформить заказ", tabCheckout);
+    tabbedPane.addTab("Данные о портных", tailorData);
+    tabbedPane.addTab("Список заказов",listOrder);
 
-        mainPanel.add(listOrder);
-        mainPanel.add(table);
-        panel.add(information);
+    JPanel panel = new JPanel(new GridLayout(2,1));
 
-        frame.add(mainPanel,BorderLayout.CENTER);
-        frame.add(panel, BorderLayout.EAST);
 
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+    panel.add(orders);
+    panel.add(table);
+
+    frame.add(tabbedPane,BorderLayout.NORTH);
+    frame.add(panel, BorderLayout.CENTER);
+
+    frame.pack();
+    frame.setLocationRelativeTo(null);
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    frame.setVisible(true);
 
 
 }
