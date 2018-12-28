@@ -3,6 +3,7 @@ package ru.studio.client.gui.swing;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class GUI_Manager {
     public static void main(String[] args) {
     JFrame frame = new JFrame("Менеджер");
@@ -15,7 +16,6 @@ public class GUI_Manager {
     StudioTab listOrder = new StudioTab();
     JLabel orders = new JLabel("Список заказов: ");
 
-
     String[] columnNames = {
             "№",
             "ФИО",
@@ -26,8 +26,8 @@ public class GUI_Manager {
 
     };
     String[][] data = {
-                {"1", "Соловьева А.Д.","8-996-345-13-54","Пошив","Юбка", String.valueOf(button)},
-                {"2", "Иванов И.И.","8-923-234-53-21","Ремонт","Куртка", String.valueOf(button1)},
+                {"1", "Соловьева А.Д.","8-996-345-13-54","Пошив","Юбка", "Button"},
+                {"2", "Иванов И.И.","8-923-234-53-21","Ремонт","Куртка", "Button"},
     };
     JTable table = new JTable(data,columnNames);
 
