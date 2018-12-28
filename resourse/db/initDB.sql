@@ -11,9 +11,9 @@ CREATE DATABASE "studioDB"
 --
 
 
--- create table public."ClotheTypes";
+-- create table public."clothetypes";
 
-CREATE TABLE public."ClotheTypes"
+CREATE TABLE public."clothetypes"
 (
     id integer NOT NULL,
     name text COLLATE pg_catalog."default" NOT NULL,
@@ -24,14 +24,14 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."ClotheTypes"
+ALTER TABLE public."clothetypes"
     OWNER to postgres;
 --
 
 
--- create table public."RepairTypes";
+-- create table public."repairtypes";
 
-CREATE TABLE public."RepairTypes"
+CREATE TABLE public."repairtypes"
 (
     id integer NOT NULL,
     name text COLLATE pg_catalog."default" NOT NULL,
@@ -42,14 +42,14 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."RepairTypes"
+ALTER TABLE public."repairtypes"
     OWNER to postgres;
 --
 
 
--- create table public."ServiceDates";
+-- create table public."servicedates";
 
-CREATE TABLE public."ServiceDates"
+CREATE TABLE public."servicedates"
 (
     id integer NOT NULL,
     measurements date,
@@ -57,21 +57,21 @@ CREATE TABLE public."ServiceDates"
     pattern date,
     stitching date,
     complete date,
-    CONSTRAINT "ServiceDates_pkey" PRIMARY KEY (id)
+    CONSTRAINT "servicedates_pkey" PRIMARY KEY (id)
 )
 WITH (
     OIDS = FALSE
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."ServiceDates"
+ALTER TABLE public."servicedates"
     OWNER to postgres;
 --
 
 
--- create table public."ServiceTypes";
+-- create table public."servicetypes";
 
-CREATE TABLE public."ServiceTypes"
+CREATE TABLE public."servicetypes"
 (
     id integer NOT NULL,
     name text COLLATE pg_catalog."default" NOT NULL,
@@ -82,31 +82,31 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."ServiceTypes"
+ALTER TABLE public."servicetypes"
     OWNER to postgres;
 --
 
 
--- create table public."Services";
+-- create table public."services";
 
-CREATE TABLE public."Services"
+CREATE TABLE public."services"
 (
     id integer NOT NULL,
     quantity integer,
     "serviceType_id" integer,
     "serviceDate_id" integer,
     "serviceRepair_id" integer,
-    CONSTRAINT "Services_pkey" PRIMARY KEY (id),
-    CONSTRAINT "RepairTypes_fkey" FOREIGN KEY ("serviceRepair_id")
-        REFERENCES public."RepairTypes" (id) MATCH SIMPLE
+    CONSTRAINT "services_pkey" PRIMARY KEY (id),
+    CONSTRAINT "repairtypes_fkey" FOREIGN KEY ("serviceRepair_id")
+        REFERENCES public."repairtypes" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
-    CONSTRAINT "ServiceDates_fkey" FOREIGN KEY ("serviceDate_id")
-        REFERENCES public."ServiceDates" (id) MATCH SIMPLE
+    CONSTRAINT "servicedates_fkey" FOREIGN KEY ("serviceDate_id")
+        REFERENCES public."servicedates" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
-    CONSTRAINT "ServiceTypes_fkey" FOREIGN KEY ("serviceType_id")
-        REFERENCES public."ServiceTypes" (id) MATCH SIMPLE
+    CONSTRAINT "servicetypes_fkey" FOREIGN KEY ("serviceType_id")
+        REFERENCES public."servicetypes" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
@@ -115,29 +115,29 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."Services"
+ALTER TABLE public."services"
     OWNER to postgres;
 
-CREATE INDEX "fki_RepairTypes_fkey"
-    ON public."Services" USING btree
+CREATE INDEX "fki_repairtypes_fkey"
+    ON public."services" USING btree
     ("serviceRepair_id")
     TABLESPACE pg_default;
 
-CREATE INDEX "fki_ServiceDates_id"
-    ON public."Services" USING btree
+CREATE INDEX "fki_servicedates_id"
+    ON public."services" USING btree
     ("serviceDate_id")
     TABLESPACE pg_default;
 
-CREATE INDEX "fki_ServiceTypes"
-    ON public."Services" USING btree
+CREATE INDEX "fki_servicetypes"
+    ON public."services" USING btree
     ("serviceType_id")
     TABLESPACE pg_default;
 --
 
 
--- create table public."UserTypes";
+-- create table public."usertypes";
 
-CREATE TABLE public."UserTypes"
+CREATE TABLE public."usertypes"
 (
     id integer NOT NULL,
     name text COLLATE pg_catalog."default",
@@ -148,14 +148,14 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."UserTypes"
+ALTER TABLE public."usertypes"
     OWNER to postgres;
 --
 
 
--- create table public."Users";
+-- create table public."users";
 
-CREATE TABLE public."Users"
+CREATE TABLE public."users"
 (
     id integer NOT NULL,
     name text COLLATE pg_catalog."default",
@@ -167,9 +167,9 @@ CREATE TABLE public."Users"
     experience integer,
     "dateOfAdoption" date,
     "userType_id" integer,
-    CONSTRAINT "Users_pkey" PRIMARY KEY (id),
+    CONSTRAINT "users_pkey" PRIMARY KEY (id),
     CONSTRAINT "UserType_fkey" FOREIGN KEY ("userType_id")
-        REFERENCES public."UserTypes" (id) MATCH SIMPLE
+        REFERENCES public."usertypes" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
@@ -178,20 +178,20 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."Users"
+ALTER TABLE public."users"
     OWNER to postgres;
 
 
 CREATE INDEX "fki_UserType_fkey"
-    ON public."Users" USING btree
+    ON public."users" USING btree
     ("userType_id")
     TABLESPACE pg_default;
 --
 
 
--- create table public."Orders";
+-- create table public."orders";
 
-CREATE TABLE public."Orders"
+CREATE TABLE public."orders"
 (
     id integer NOT NULL,
     "tailorAssignment" boolean,
@@ -203,25 +203,25 @@ CREATE TABLE public."Orders"
     "clothesType_id" integer,
     complete boolean,
     "givenOut" boolean,
-    CONSTRAINT "Orders_pkey" PRIMARY KEY (id),
-    CONSTRAINT "ClotheTypes_fkey" FOREIGN KEY ("clothesType_id")
-        REFERENCES public."ClotheTypes" (id) MATCH SIMPLE
+    CONSTRAINT "orders_pkey" PRIMARY KEY (id),
+    CONSTRAINT "clothetypes_fkey" FOREIGN KEY ("clothesType_id")
+        REFERENCES public."clothetypes" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT "Service_fkey" FOREIGN KEY (services_id)
-        REFERENCES public."Services" (id) MATCH SIMPLE
+        REFERENCES public."services" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT "User_client_fkey" FOREIGN KEY (user_id_client)
-        REFERENCES public."Users" (id) MATCH SIMPLE
+        REFERENCES public."users" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT "User_manager_fkey" FOREIGN KEY (user_id_manager)
-        REFERENCES public."Users" (id) MATCH SIMPLE
+        REFERENCES public."users" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
     CONSTRAINT "User_tailor_fkey" FOREIGN KEY (user_id_tailor)
-        REFERENCES public."Users" (id) MATCH SIMPLE
+        REFERENCES public."users" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
@@ -230,56 +230,56 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."Orders"
+ALTER TABLE public."orders"
     OWNER to postgres;
 
-CREATE INDEX "fki_ClotheTypes_fkey"
-    ON public."Orders" USING btree
+CREATE INDEX "fki_clothetypes_fkey"
+    ON public."orders" USING btree
     ("clothesType_id")
     TABLESPACE pg_default;
 
 CREATE INDEX fki_client_fk
-    ON public."Orders" USING btree
+    ON public."orders" USING btree
     (user_id_client)
     TABLESPACE pg_default;
 
 CREATE INDEX fki_manager_fk
-    ON public."Orders" USING btree
+    ON public."orders" USING btree
     (user_id_manager)
     TABLESPACE pg_default;
 
 CREATE INDEX fki_service_fk
-    ON public."Orders" USING btree
+    ON public."orders" USING btree
     (services_id)
     TABLESPACE pg_default;
 
 CREATE INDEX fki_tailor_fk
-    ON public."Orders" USING btree
+    ON public."orders" USING btree
     (user_id_tailor)
     TABLESPACE pg_default;
 --
 
 
--- create table public."Prices";
+-- create table public."prices";
 
-CREATE TABLE public."Prices"
+CREATE TABLE public."prices"
 (
     id integer NOT NULL,
     "clotherType_id" integer,
     "serviceType_id" integer,
     "repairType_id" integer,
     cost double precision,
-    CONSTRAINT "Prices_pkey" PRIMARY KEY (id),
-    CONSTRAINT "ClotheTypes_id_fkey" FOREIGN KEY ("clotherType_id")
-        REFERENCES public."ClotheTypes" (id) MATCH SIMPLE
+    CONSTRAINT "prices_pkey" PRIMARY KEY (id),
+    CONSTRAINT "clothetypes_id_fkey" FOREIGN KEY ("clotherType_id")
+        REFERENCES public."clothetypes" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
-    CONSTRAINT "RepairTypes_id_fkey" FOREIGN KEY ("repairType_id")
-        REFERENCES public."RepairTypes" (id) MATCH SIMPLE
+    CONSTRAINT "repairtypes_id_fkey" FOREIGN KEY ("repairType_id")
+        REFERENCES public."repairtypes" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION,
-    CONSTRAINT "ServiceTypes_id_fkey" FOREIGN KEY ("serviceType_id")
-        REFERENCES public."ServiceTypes" (id) MATCH SIMPLE
+    CONSTRAINT "servicetypes_id_fkey" FOREIGN KEY ("serviceType_id")
+        REFERENCES public."servicetypes" (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
@@ -288,21 +288,21 @@ WITH (
 )
 TABLESPACE pg_default;
 
-ALTER TABLE public."Prices"
+ALTER TABLE public."prices"
     OWNER to postgres;
 
-CREATE INDEX "fki_ClotheTypes_id_fkey"
-    ON public."Prices" USING btree
+CREATE INDEX "fki_clothetypes_id_fkey"
+    ON public."prices" USING btree
     ("clotherType_id")
     TABLESPACE pg_default;
 
-CREATE INDEX "fki_RepairTypes_id_fkey"
-    ON public."Prices" USING btree
+CREATE INDEX "fki_repairtypes_id_fkey"
+    ON public."prices" USING btree
     ("repairType_id")
     TABLESPACE pg_default;
 
-CREATE INDEX "fki_ServiceTypes_id_fkey"
-    ON public."Prices" USING btree
+CREATE INDEX "fki_servicetypes_id_fkey"
+    ON public."prices" USING btree
     ("serviceType_id")
     TABLESPACE pg_default;
 --
