@@ -1,49 +1,73 @@
 package ru.studio.client.gui;
 
-
-import static ru.studio.client.app.Application.SERVICE_TYPE_REPAIR;
-import static ru.studio.client.app.Application.SERVICE_TYPE_SEWING;
-
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.studio.api.model.Order;
+import ru.studio.api.model.clothes.ClotheType;
 import ru.studio.api.model.service.*;
 import ru.studio.client.app.Application;
-import ru.studio.api.model.Order;
 import ru.studio.client.app.Studio;
-import ru.studio.api.model.clothes.ClotheType;
 
-
-/**
- * @author Angelina Kuzmina
- */
 @Getter
 @Setter
-@SuppressWarnings("unchecked")
-public class AddOrderGUI implements GUItabble
+public class AddOrderGUI extends JFrame implements ActionListener
 {
-	private JPanel rootPanel;
-	private JComboBox cbClotheType;
-	private JComboBox cbRepairType;
-	private JButton btCreateOrder;
-	private JComboBox cbServiceType;
-	private Integer width;
-	private Integer height;
-
 	Application app;
 	Studio studio;
 
+	JLabel service = new JLabel("Услуга");
+	JComboBox cbServiceType = new JComboBox();
+	JLabel clothingType = new JLabel("Тип одежды");
+	JComboBox cbClotheType = new JComboBox();
+	JLabel typeOfRepair = new JLabel("Тип ремонта");
+	JComboBox cbRepairType = new JComboBox();
 
-	public AddOrderGUI()
+	JButton btCreateOrder = new JButton("Создать заказ");
+
+	public AddOrderGUI(String title)
 	{
+		super(title);
+		this.setLayout(new BorderLayout());
 
-		cbServiceType.addActionListener(e -> {
+		JPanel mainPanel = new JPanel(new GridLayout(3, 2));
+		JPanel buttonPanel = new JPanel(new GridLayout(1, 1));
+
+		mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 10));
+		buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 400, 10, 10));
+
+		cbClotheType.setEnabled(false);
+		cbRepairType.setEnabled(false);
+
+		cbServiceType.addActionListener(this);
+		btCreateOrder.addActionListener(this);
+
+		mainPanel.add(service);
+		mainPanel.add(cbServiceType);
+		mainPanel.add(clothingType);
+		mainPanel.add(cbClotheType);
+		mainPanel.add(typeOfRepair);
+		mainPanel.add(cbRepairType);
+		buttonPanel.add(btCreateOrder);
+
+		add(mainPanel, BorderLayout.NORTH);
+		add(buttonPanel, BorderLayout.SOUTH);
+
+		this.pack();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		if (e.getSource() == cbServiceType)
+		{
 			JComboBox jComboBox = ((JComboBox) e.getSource());
 			Object object = jComboBox.getSelectedItem();
 			if (object != null)
@@ -52,31 +76,32 @@ public class AddOrderGUI implements GUItabble
 				{
 					switch (selectedItem)
 					{
-						case SERVICE_TYPE_REPAIR:
+						case Application.SERVICE_TYPE_REPAIR:
 							List<String> repairTypeName = studio.getAllServiceRepairTypeName();
 							DefaultComboBoxModel model = new DefaultComboBoxModel(repairTypeName.toArray());
 							app.getAddOrderGUI().getCbRepairType().setModel(model);
 							cbRepairType.setEnabled(true);
 							break;
-						case SERVICE_TYPE_SEWING:
+						case Application.SERVICE_TYPE_SEWING:
 							cbRepairType.setEnabled(false);
 							break;
 					}
 					List<String> clothesTypeName = studio.getAllClothesTypeName();
 					DefaultComboBoxModel model = new DefaultComboBoxModel(clothesTypeName.toArray());
+					cbClotheType.setEnabled(true);
 					app.getAddOrderGUI().getCbClotheType().setModel(model);
 				}
 			}
-		});
-
-		btCreateOrder.addActionListener(e -> {
+		}
+		if (e.getSource() == btCreateOrder)
+		{
 			Integer clotheId = cbClotheType.getSelectedIndex();
 			ClotheType clotheType = studio.getClotheTypeById(clotheId);
 			Integer serviceTypeId = cbServiceType.getSelectedIndex();
 			ServiceType serviceType = studio.getServiceTypeByID(serviceTypeId);
 
 			Service service = null;
-			if (SERVICE_TYPE_REPAIR.equals(serviceType.getName()))
+			if (Application.SERVICE_TYPE_REPAIR.equals(serviceType.getName()))
 			{
 				ServiceRepair serviceRepair = new ServiceRepair();
 				serviceRepair.setServiceType(serviceType);
@@ -85,7 +110,7 @@ public class AddOrderGUI implements GUItabble
 				serviceRepair.setRepairType(repairType);
 				service = serviceRepair;
 			}
-			if (SERVICE_TYPE_SEWING.equals(serviceType.getName()))
+			if (Application.SERVICE_TYPE_SEWING.equals(serviceType.getName()))
 			{
 				ServiceSewing serviceSewing = new ServiceSewing();
 				serviceSewing.setServiceType(serviceType);
@@ -99,19 +124,6 @@ public class AddOrderGUI implements GUItabble
 			order.setClothesType(clotheType);
 			order.setService(service);
 			studio.saveOrder(order);
-		});
-	}
-
-
-	@Override
-	public String getTitle()
-	{
-		return Application.GUI_ADD_ORDER;
-	}
-
-	@Override
-	public JPanel getRootPanel()
-	{
-		return rootPanel;
+		}
 	}
 }

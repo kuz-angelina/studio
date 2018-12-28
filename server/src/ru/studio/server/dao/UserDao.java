@@ -9,7 +9,7 @@ public interface UserDao
 {
 	User getUserByName(String name);
 
-	User getUserById(Integer id);
+	User getUserById(Long id);
 
 	void createUser(User user);
 }

@@ -3,6 +3,7 @@ package ru.studio.server.dao;
 
 import java.sql.*;
 
+import ru.studio.api.model.role.Client;
 import ru.studio.api.model.role.Tailor;
 import ru.studio.api.model.role.User;
 
@@ -10,21 +11,28 @@ import ru.studio.api.model.role.User;
 public class UserDaoImp implements UserDao
 {
 
-	public static final String JDBC_URL = "jdbc:postgresql://192.168.4.205:5432/studoiDB?user=postgres&password=root";
+	public static final String JDBC_URL = "jdbc:postgresql://localhost:5432/studioDB?user=postgres&password=root";
 
 	@Override
-	public User getUserById(Integer id)
+	public User getUserById(Long id)
 	{
 		Tailor user = new Tailor();
 
-		try (Connection conn = DriverManager.getConnection(JDBC_URL)) {    //Получаем драйвер MySQL. DriverManager находит его по ClassPath, делает driver.accept(JDBC_URL) и если получает success то возращает нам экземпляр драйвера
+		String SQL = "SELECT * "
+						+ "FROM users "
+						+ "WHERE id = ?";
 
-			Statement stmt = conn.createStatement();    //Создаем стейтмент для запроса
-			ResultSet rs = stmt.executeQuery("SELECT * FROM \"Users\"");   //Создаем результсет для получения ответа
+		try (Connection conn = connect();
+				 PreparedStatement pstmt = conn.prepareStatement(SQL))
+		{
+			pstmt.setLong(1, id);
+			ResultSet rs = pstmt.executeQuery(SQL);
 
-			while (rs.next()) { //перебираем наш результсет и выводим на консоль
+			while (rs.next())
+			{
 				user.setId(rs.getInt("id"));
-				user.setName(rs.getString("name"));
+				user.setName(rs.getString("labelName"));
+				user.setPassword((rs.getString("password")));
 			}
 		}
 		catch (SQLException e)
@@ -37,25 +45,28 @@ public class UserDaoImp implements UserDao
 	@Override
 	public User getUserByName(String name)
 	{
-		Tailor user = new Tailor();
+		Client user = new Client();
 
 		String SQL = "SELECT * "
 						+ "FROM users "
 						+ "WHERE name = ?";
 
 		try (Connection conn = connect();
-				 PreparedStatement pstmt = conn.prepareStatement(SQL)) {
+				 PreparedStatement pstmt = conn.prepareStatement(SQL))
+		{
 
 			pstmt.setString(1, name);
-		ResultSet	rs = pstmt.executeQuery();
+			ResultSet rs = pstmt.executeQuery();
 
-			while (rs.next()) { //перебираем наш результсет и выводим на консоль
+			while (rs.next())
+			{
 				user.setId(rs.getInt("id"));
-				user.setName(rs.getString("name"));
+				user.setName(rs.getString("labelName"));
 				user.setPassword((rs.getString("password")));
 			}
-
-		} catch (SQLException ex) {
+		}
+		catch (SQLException ex)
+		{
 			System.out.println(ex.getMessage());
 		}
 		return user;
@@ -67,7 +78,8 @@ public class UserDaoImp implements UserDao
 
 	}
 
-	public Connection connect() throws SQLException {
+	public Connection connect() throws SQLException
+	{
 		return DriverManager.getConnection(JDBC_URL);
 	}
 }

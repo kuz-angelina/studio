@@ -1,7 +1,9 @@
-package ru.studio.client.gui.swing;
+package ru.studio.client.gui;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Panel;
+
+import javax.swing.JPanel;
 
 /**
  * @author Angelina Kuzmina

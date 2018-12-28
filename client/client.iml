@@ -12,5 +12,6 @@
     <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="module" module-name="API" />
     <orderEntry type="library" name="postgresql-42.2.5" level="project" />
+    <orderEntry type="module" module-name="server" />
   </component>
 </module>

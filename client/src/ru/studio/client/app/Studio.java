@@ -3,6 +3,8 @@ package ru.studio.client.app;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
+
 import lombok.Getter;
 import lombok.Setter;
 import ru.studio.api.model.Order;
@@ -13,7 +15,7 @@ import ru.studio.api.model.service.ServiceType;
 import ru.studio.api.services.AdvancedService;
 import ru.studio.api.services.OrderService;
 import ru.studio.api.services.UserService;
-import ru.studio.client.gui.GUItabble;
+
 
 /**
  * @author Angelina Kuzmina
@@ -22,7 +24,6 @@ import ru.studio.client.gui.GUItabble;
 @Setter
 public class Studio
 {
-
 	private OrderService orderServices;
 	private UserService userService;
 	private AdvancedService advancedService;
@@ -31,6 +32,13 @@ public class Studio
 	private String phoneNumber;
 	private String workClock;
 
+	public Studio(String orgName, String address, String phoneNumber, String workClock)
+	{
+		this.orgName = orgName;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.workClock = workClock;
+	}
 
 	//create order procedure
 	void createOrder()
@@ -59,7 +67,7 @@ public class Studio
 		return orderServices.getOrdersByUserId(user.getId());
 	}
 
-	public boolean createTicket(GUItabble form)
+	public boolean createTicket(JFrame gui)
 	{
 		return false;
 	}

@@ -10,10 +10,9 @@ public class StartApplication
 
 	public static void main(String[] args)
 	{
-
 		Application app = new Application();
 		app.createObject();
 		app.injectObject();
-		app.initGui(app.getClientGUI());
+		app.initGui(app.getMainClientGUI());
 	}
 }
