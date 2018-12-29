@@ -1,11 +1,12 @@
 package ru.studio.api.model.service;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author Angelina Kuzmina
  */
-public class ServiceDate
+public class ServiceDate  implements Serializable
 {
 	private Date measurements;
 	private Date modeling;

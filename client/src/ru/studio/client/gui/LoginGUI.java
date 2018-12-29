@@ -60,7 +60,7 @@ public class LoginGUI extends JFrame implements ActionListener
 		btReg.addActionListener(this);
 
 		this.pack();
-		this.setSize(300,250);
+		this.setSize(300,300);
 	}
 
 	@Override

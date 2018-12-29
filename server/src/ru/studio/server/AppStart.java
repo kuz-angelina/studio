@@ -10,6 +10,6 @@ public class AppStart
 	public static void main(String[] args)
 	{
 		UserDaoImp userDaoImp = new UserDaoImp();
-		User user = userDaoImp.getUserByName("ivan");
+		User user = userDaoImp.getUserByName("tom");
 	}
 }

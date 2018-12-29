@@ -11,7 +11,7 @@ import ru.studio.api.model.role.User;
 public class UserDaoImp implements UserDao
 {
 
-	public static final String JDBC_URL = "jdbc:postgresql://localhost:5432/studioDB?user=postgres&password=root";
+	public static final String JDBC_URL = "jdbc:postgresql://127.0.0.1:5432/studioDB?user=postgres&password=kuzyaangel020899";
 
 	@Override
 	public User getUserById(Long id)
@@ -31,7 +31,7 @@ public class UserDaoImp implements UserDao
 			while (rs.next())
 			{
 				user.setId(rs.getInt("id"));
-				user.setName(rs.getString("labelName"));
+				user.setName(rs.getString("name"));
 				user.setPassword((rs.getString("password")));
 			}
 		}
@@ -49,7 +49,7 @@ public class UserDaoImp implements UserDao
 
 		String SQL = "SELECT * "
 						+ "FROM users "
-						+ "WHERE name = ?";
+						+ "WHERE login = ?";
 
 		try (Connection conn = connect();
 				 PreparedStatement pstmt = conn.prepareStatement(SQL))
@@ -61,7 +61,7 @@ public class UserDaoImp implements UserDao
 			while (rs.next())
 			{
 				user.setId(rs.getInt("id"));
-				user.setName(rs.getString("labelName"));
+				user.setLogin(rs.getString("login"));
 				user.setPassword((rs.getString("password")));
 			}
 		}
