@@ -26,15 +26,26 @@ public class AdvancedServiceImpl implements AdvancedService
 	@Override
 	public List<ServiceType> getAllServiceType()
 	{
-		try
-		{
-			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
-		}
-		catch (MalformedURLException e)
-		{
-			e.printStackTrace();
-		}
-		return advancedService.getAllServiceType();
+//		try
+//		{
+//			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+//		}
+//		catch (MalformedURLException e)
+//		{
+//			e.printStackTrace();
+//		}
+
+		ArrayList<ServiceType> serviceTypes = new ArrayList<>();
+		ServiceType repair = new ServiceType();
+		repair.setName("Ремонт");
+
+		ServiceType sewing = new ServiceType();
+		sewing.setName("Пошив");
+
+		serviceTypes.add(repair);
+		serviceTypes.add(sewing);
+
+		return serviceTypes;
 	}
 
 	@Override
@@ -46,6 +57,9 @@ public class AdvancedServiceImpl implements AdvancedService
 
 		RepairType coloring = new RepairType();
 		coloring.setName("Покрасить");
+
+		RepairType dyrki = new RepairType();
+		dyrki.setName("Заштопать");
 
 		repairTypes.add(shorter);
 		repairTypes.add(coloring);
@@ -64,6 +78,9 @@ public class AdvancedServiceImpl implements AdvancedService
 
 		ClotheType shorty = new ClotheType();
 		shorty.setName("Шорты");
+
+		ClotheType noski = new ClotheType();
+		noski.setName("Носки");
 
 		clothesTypes.add(rubaha);
 		clothesTypes.add(shorty);

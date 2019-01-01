@@ -68,7 +68,7 @@ public class MainClientGUI extends JFrame implements ActionListener
 		add(bpanel, BorderLayout.EAST);
 
 		this.pack();
-		this.setSize(600, 400);
+		this.setSize(600, 450);
 
 		btLogin.addActionListener(this);
 
