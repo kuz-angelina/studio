@@ -1,15 +1,22 @@
 package ru.studio.api.model.service;
 
-import java.util.Date;
+
+import java.io.Serializable;
+import java.sql.Date;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author Angelina Kuzmina
  */
-public class ServiceDate
+@Getter
+@Setter
+public class ServiceDate implements Serializable
 {
+	private Integer id;
 	private Date measurements;
 	private Date modeling;
 	private Date pattern;
 	private Date stitching;
-	private Date complete;
 }

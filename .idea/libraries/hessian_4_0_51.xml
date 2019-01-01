@@ -2,7 +2,6 @@
   <library name="hessian-4.0.51">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/hessian-4.0.51.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/servlet-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

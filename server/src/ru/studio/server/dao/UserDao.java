@@ -7,7 +7,7 @@ import ru.studio.api.model.role.User;
 
 public interface UserDao
 {
-	User getUserByName(String name);
+	User getUserByLogin(String name);
 
 	User getUserById(Long id);
 

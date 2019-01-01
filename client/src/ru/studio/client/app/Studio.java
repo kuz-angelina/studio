@@ -72,10 +72,10 @@ public class Studio
 		return false;
 	}
 
-	public User login(String name, String pass)
+	public User login(String login, String pass)
 	{
-		User user = userService.getUserByName(name);
-		if (user != null && user.getPassword().equals(pass))
+		User user = userService.getUserByLogin(login);
+		if (user != null && user.getLogin() != null && user.getPassword().equals(pass))
 		{
 			return user;
 		}

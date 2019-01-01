@@ -77,7 +77,7 @@ public class LoginGUI extends JFrame implements ActionListener
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "Добро пожаловать, " + user.getLogin());
+				JOptionPane.showMessageDialog(null, "Добро пожаловать, " + user.getName());
 				ifSuccess = true;
 			}
 			if (ifSuccess)

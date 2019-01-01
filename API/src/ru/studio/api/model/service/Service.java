@@ -1,5 +1,7 @@
 package ru.studio.api.model.service;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,9 +10,9 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public abstract class Service
+public abstract class Service implements Serializable
 {
-	private Long id;
+	private Integer id;
 	private Integer quantity;
 	private ServiceType serviceType;
 }

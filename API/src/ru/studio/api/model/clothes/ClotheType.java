@@ -1,5 +1,7 @@
 package ru.studio.api.model.clothes;
 
+import java.io.Serializable;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,8 +10,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class ClotheType
+public class ClotheType implements Serializable
 {
-	private Long id;
+	private Integer id;
 	private String name;
 }

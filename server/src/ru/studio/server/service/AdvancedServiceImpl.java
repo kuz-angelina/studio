@@ -47,7 +47,6 @@ public class AdvancedServiceImpl extends HessianServlet implements AdvancedServi
 
 		repairTypes.add(shorter);
 		repairTypes.add(coloring);
-//		RepairType
 
 		return repairTypes;
 	}

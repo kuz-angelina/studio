@@ -7,7 +7,7 @@ import com.caucho.hessian.server.HessianServlet;
 import ru.studio.api.model.role.User;
 import ru.studio.api.services.UserService;
 import ru.studio.server.dao.UserDao;
-import ru.studio.server.dao.UserDaoImp;
+import ru.studio.server.dao.impl.UserDaoImp;
 
 
 /**
@@ -32,7 +32,7 @@ public class UserServiceImpl extends HessianServlet implements UserService
 	}
 
 	@Override
-	public User getUserByName(String name)
+	public User getUserByLogin(String login)
 	{
 //		Map<String, User> users = new HashMap<>();
 //
@@ -44,7 +44,7 @@ public class UserServiceImpl extends HessianServlet implements UserService
 //		users.put(manager.getName(), manager);
 //		users.put(tailor.getName(), tailor);
 
-		User user = userDao.getUserByName(name);
+		User user = userDao.getUserByLogin(login);
 
 		return user;
 	}

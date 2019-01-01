@@ -12,7 +12,7 @@ import ru.studio.api.model.role.User;
  */
 public class UserServiceImpl implements UserService
 {
-	String url = "http://localhost:8080/unnamed/user";
+	String url = "http://localhost:8080/user";
 	HessianProxyFactory factory = new HessianProxyFactory();
 	UserService userService;
 
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService
 	}
 
 	@Override
-	public User getUserByName(String name)
+	public User getUserByLogin(String login)
 	{
 		try
 		{
@@ -39,7 +39,8 @@ public class UserServiceImpl implements UserService
 		{
 			e.printStackTrace();
 		}
-		return userService.getUserByName(name);
+		User user = userService.getUserByLogin(login);
+		return user;
 	}
 
 	@Override
