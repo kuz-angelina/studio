@@ -1,16 +1,14 @@
 package ru.studio.client.service;
 
 import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.caucho.hessian.client.HessianProxyFactory;
 
-import ru.studio.api.services.AdvancedService;
 import ru.studio.api.model.clothes.ClotheType;
 import ru.studio.api.model.service.RepairType;
 import ru.studio.api.model.service.ServiceType;
-
+import ru.studio.api.services.AdvancedService;
 
 
 /**
@@ -26,83 +24,85 @@ public class AdvancedServiceImpl implements AdvancedService
 	@Override
 	public List<ServiceType> getAllServiceType()
 	{
-//		try
-//		{
-//			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
-//		}
-//		catch (MalformedURLException e)
-//		{
-//			e.printStackTrace();
-//		}
-
-		ArrayList<ServiceType> serviceTypes = new ArrayList<>();
-		ServiceType repair = new ServiceType();
-		repair.setName("Ремонт");
-
-		ServiceType sewing = new ServiceType();
-		sewing.setName("Пошив");
-
-		serviceTypes.add(repair);
-		serviceTypes.add(sewing);
-
-		return serviceTypes;
+		try
+		{
+			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return advancedService.getAllServiceType();
 	}
 
 	@Override
 	public List<RepairType> getAllRepairType()
 	{
-		ArrayList<RepairType> repairTypes = new ArrayList<>();
-		RepairType shorter = new RepairType();
-		shorter.setName("Укоротить");
-
-		RepairType coloring = new RepairType();
-		coloring.setName("Покрасить");
-
-		RepairType dyrki = new RepairType();
-		dyrki.setName("Заштопать");
-
-		repairTypes.add(shorter);
-		repairTypes.add(coloring);
-
-		return repairTypes;
+		try
+		{
+			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return advancedService.getAllRepairType();
 	}
 
 	@Override
 	public List<ClotheType> getAllClothesType()
 	{
 
-		ArrayList<ClotheType> clothesTypes = new ArrayList<>();
-
-		ClotheType rubaha = new ClotheType();
-		rubaha.setName("Рубашка");
-
-		ClotheType shorty = new ClotheType();
-		shorty.setName("Шорты");
-
-		ClotheType noski = new ClotheType();
-		noski.setName("Носки");
-
-		clothesTypes.add(rubaha);
-		clothesTypes.add(shorty);
-
-		return clothesTypes;
+		try
+		{
+			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return advancedService.getAllClothesType();
 	}
 
 	@Override
 	public ClotheType getClotheTypeByID(Integer clotheId)
 	{
-		return null;
+		try
+		{
+			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return advancedService.getClotheTypeByID(clotheId);
 	}
 
 	@Override
 	public ServiceType getServiceTypeById(Integer serviceTypeId)
 	{
-		return null;
+		try
+		{
+			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return advancedService.getServiceTypeById(serviceTypeId);
 	}
 
 	@Override
 	public RepairType getRepairTypeById(Integer repairTypeId)
 	{
-		return null;
+		try
+		{
+			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return advancedService.getRepairTypeById(repairTypeId);
 	}
 }

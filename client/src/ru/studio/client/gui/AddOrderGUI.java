@@ -95,9 +95,9 @@ public class AddOrderGUI extends JFrame implements ActionListener
 		}
 		if (e.getSource() == btCreateOrder)
 		{
-			Integer clotheId = cbClotheType.getSelectedIndex();
+			Integer clotheId = cbClotheType.getSelectedIndex() + 1;
 			ClotheType clotheType = studio.getClotheTypeById(clotheId);
-			Integer serviceTypeId = cbServiceType.getSelectedIndex();
+			Integer serviceTypeId = cbServiceType.getSelectedIndex() + 1;
 			ServiceType serviceType = studio.getServiceTypeByID(serviceTypeId);
 
 			Service service = null;
@@ -105,7 +105,7 @@ public class AddOrderGUI extends JFrame implements ActionListener
 			{
 				ServiceRepair serviceRepair = new ServiceRepair();
 				serviceRepair.setServiceType(serviceType);
-				Integer repairTypeId = cbRepairType.getSelectedIndex();
+				Integer repairTypeId = cbRepairType.getSelectedIndex() + 1;
 				RepairType repairType = studio.getRepairTypeById(repairTypeId);
 				serviceRepair.setRepairType(repairType);
 				service = serviceRepair;
@@ -119,10 +119,17 @@ public class AddOrderGUI extends JFrame implements ActionListener
 				service = serviceSewing;
 			}
 
+			service.setQuantity(5);
+
 			Order order = new Order();
 			order.setClient(app.getClient());
 			order.setClothesType(clotheType);
 			order.setService(service);
+
+			order.setTailorAssignment(false);
+			order.setCost(100.0);
+			order.setComplete(false);
+			order.setGivenOut(false);
 			studio.saveOrder(order);
 		}
 	}

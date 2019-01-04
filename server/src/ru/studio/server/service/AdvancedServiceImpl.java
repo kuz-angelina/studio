@@ -2,7 +2,6 @@
 
 package ru.studio.server.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.caucho.hessian.server.HessianServlet;
@@ -11,6 +10,8 @@ import ru.studio.api.model.clothes.ClotheType;
 import ru.studio.api.model.service.RepairType;
 import ru.studio.api.model.service.ServiceType;
 import ru.studio.api.services.AdvancedService;
+import ru.studio.server.dao.AdvancedDao;
+import ru.studio.server.dao.impl.AdvancedDaoImpl;
 
 
 /**
@@ -19,71 +20,53 @@ import ru.studio.api.services.AdvancedService;
 
 public class AdvancedServiceImpl extends HessianServlet implements AdvancedService
 {
+	AdvancedDao advancedDao = new AdvancedDaoImpl();
+
 	@Override
 	public List<ServiceType> getAllServiceType()
 	{
-		ArrayList<ServiceType> list = new ArrayList<>();
-
-		ServiceType repair = new ServiceType();
-		repair.setName("Ремонт");
-
-		ServiceType sewing = new ServiceType();
-		sewing.setName("Пошив");
-
-		list.add(repair);
-		list.add(sewing);
-		return list;
+//		ArrayList<ServiceType> list = new ArrayList<>();
+//
+//		ServiceType repair = new ServiceType();
+//		repair.setName("Ремонт");
+//
+//		ServiceType sewing = new ServiceType();
+//		sewing.setName("Пошив");
+//
+//		list.add(repair);
+//		list.add(sewing);
+//		return list;
+		return advancedDao.getAllServices();
 	}
 
 	@Override
 	public List<RepairType> getAllRepairType()
 	{
-		ArrayList<RepairType> repairTypes = new ArrayList<>();
-		RepairType shorter = new RepairType();
-		shorter.setName("Укоротить");
-
-		RepairType coloring = new RepairType();
-		coloring.setName("Покрасить");
-
-		repairTypes.add(shorter);
-		repairTypes.add(coloring);
-
-		return repairTypes;
+		return advancedDao.getAllRepairTypes();
 	}
 
 	@Override
 	public List<ClotheType> getAllClothesType()
 	{
 
-		ArrayList<ClotheType> clothesTypes = new ArrayList<>();
-
-		ClotheType rubaha = new ClotheType();
-		rubaha.setName("Рубашка");
-
-		ClotheType shorty = new ClotheType();
-		shorty.setName("Шорты");
-
-		clothesTypes.add(rubaha);
-		clothesTypes.add(shorty);
-
-		return clothesTypes;
+		return advancedDao.getAllClotherTypes();
 	}
 
 	@Override
 	public ClotheType getClotheTypeByID(Integer clotheId)
 	{
-		return null;
+		return advancedDao.getClotheTypeById(clotheId);
 	}
 
 	@Override
 	public ServiceType getServiceTypeById(Integer serviceTypeId)
 	{
-		return null;
+		return advancedDao.getServiceTypeByID(serviceTypeId);
 	}
 
 	@Override
 	public RepairType getRepairTypeById(Integer repairTypeId)
 	{
-		return null;
+		return advancedDao.getRepairTypeById(repairTypeId);
 	}
 }

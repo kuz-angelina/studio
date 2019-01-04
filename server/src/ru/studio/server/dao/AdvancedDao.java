@@ -17,6 +17,8 @@ package ru.studio.server.dao;
 
 import java.util.List;
 
+import ru.studio.api.model.clothes.ClotheType;
+import ru.studio.api.model.service.RepairType;
 import ru.studio.api.model.service.ServiceType;
 
 /**
@@ -26,4 +28,16 @@ import ru.studio.api.model.service.ServiceType;
 public interface AdvancedDao
 {
 	List<ServiceType> getAllServices();
+
+	List<RepairType> getAllRepairTypes();
+
+	List<ClotheType> getAllClotherTypes();
+
+	ServiceType getServiceTypeByID(Integer id);
+
+	RepairType getRepairTypeById(Integer id);
+
+	ClotheType getClotheTypeById(Integer id);
 }
+
+

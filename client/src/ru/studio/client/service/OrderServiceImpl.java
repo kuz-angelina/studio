@@ -1,5 +1,6 @@
 package ru.studio.client.service;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 import com.caucho.hessian.client.HessianProxyFactory;
@@ -31,6 +32,15 @@ public class OrderServiceImpl implements OrderService
 	@Override
 	public void saveOrder(Order order)
 	{
+		try
+		{
+			orderService = (OrderService) factory.create(OrderService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		orderService.saveOrder(order);
 	}
 
 	@Override

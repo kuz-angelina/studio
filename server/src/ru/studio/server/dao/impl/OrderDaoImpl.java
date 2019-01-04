@@ -35,7 +35,8 @@ import ru.studio.server.dao.OrderDao;
  */
 public class OrderDaoImpl implements OrderDao
 {
-	public void saveServiceDate(ServiceDate serviceDate){
+	public void saveServiceDate(ServiceDate serviceDate)
+	{
 		String SQL = "INSERT INTO servicedates VALUES (?,?,?,?)";
 
 		try (Connection conn = connect();
@@ -61,7 +62,7 @@ public class OrderDaoImpl implements OrderDao
 	public void saveService(Service service)
 	{
 		String serviceClassName = service.getClass().getSimpleName();
-		String SQL = "INSERT INTO services VALUES (?,?,?,?)";
+		String SQL = "INSERT INTO services (\"quantity\", \"service_type_id\", \"service_date_id\",\"repair_type_id\" ) VALUES (?,?,?,?)";
 
 		try (Connection conn = connect();
 				 PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS))
@@ -69,12 +70,16 @@ public class OrderDaoImpl implements OrderDao
 			pstmt.setInt(1, service.getQuantity());
 			pstmt.setInt(2, service.getServiceType().getId());
 
-			if (Constaint.SERVICE_TYPE_SEWING.equals(serviceClassName)){
+			if (Constaint.SEWING_CLASS_NAME.equals(serviceClassName))
+			{
 				ServiceSewing serviceSewing = (ServiceSewing) service;
 				pstmt.setInt(3, serviceSewing.getServiceDate().getId());
+				pstmt.setInt(4, 0);
 			}
-			if (Constaint.SERVICE_TYPE_REPAIR.equals(serviceClassName)){
+			if (Constaint.REPAIR_CLASS_NAME.equals(serviceClassName))
+			{
 				ServiceRepair serviceRepair = (ServiceRepair) service;
+				pstmt.setInt(3, 0);
 				pstmt.setInt(4, serviceRepair.getRepairType().getId());
 			}
 
@@ -113,9 +118,11 @@ public class OrderDaoImpl implements OrderDao
 		{
 
 			pstmt.setBoolean(1, order.getTailorAssignment());
-			pstmt.setInt(2, order.getManager().getId());
+			pstmt.setInt(2, 0);
+			//			pstmt.setInt(2, order.getManager().getId());
 			pstmt.setInt(3, order.getClient().getId());
-			pstmt.setInt(4, order.getTailor().getId());
+			//			pstmt.setInt(4, order.getTailor().getId());
+			pstmt.setInt(4, 0);
 			pstmt.setDouble(5, order.getCost());
 			pstmt.setInt(6, order.getService().getId());
 			pstmt.setInt(7, order.getClothesType().getId());
