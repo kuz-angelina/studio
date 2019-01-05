@@ -31,6 +31,7 @@ public class Application
 
 	private LoginGUI loginGUI;
 	private AddOrderGUI addOrderGUI;
+	private AddOrderGUI editOrderGUI;
 
 	private RegGUI regGUI;
 	private MainClientGUI mainClientGUI;
@@ -54,6 +55,7 @@ public class Application
 	public static String GUI_TAILOR = "Портной";
 	public static String GUI_REG = "Регистрация";
 	public static String GUI_ADD_ORDER = "Добавить заказ";
+	public static String GUI_EDIT_ORDER = "Изменить заказ";
 	public static String GUI_LOGIN = "Авторизация";
 
 
@@ -68,6 +70,7 @@ public class Application
 	{
 		loginGUI = new LoginGUI(GUI_LOGIN);
 		addOrderGUI = new AddOrderGUI(GUI_ADD_ORDER);
+		editOrderGUI = new AddOrderGUI(GUI_ADD_ORDER, 0,0);
 		regGUI = new RegGUI(GUI_REG);
 		mainClientGUI = new MainClientGUI(GUI_CLIENT);
 		mainManagerGUI = new MainManagerGUI(GUI_MANAGER);
@@ -100,6 +103,9 @@ public class Application
 
 		addOrderGUI.setApp(this);
 		addOrderGUI.setStudio(studio);
+
+		editOrderGUI.setApp(this);
+		editOrderGUI.setStudio(studio);
 	}
 
 	//	public void initGui(GUItabble gui)
@@ -157,6 +163,7 @@ public class Application
 			mainClientGUI.getBtAddOrder().setEnabled(true);
 			mainClientGUI.getBtEditOrder().setEnabled(true);
 			mainClientGUI.getBtDelOrder().setEnabled(true);
+			mainClientGUI.initTable();
 		}
 	}
 

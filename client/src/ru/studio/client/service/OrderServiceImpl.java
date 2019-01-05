@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.caucho.hessian.client.HessianProxyFactory;
 
+import ru.studio.api.model.table.TableDataOrder;
 import ru.studio.api.services.OrderService;
 import ru.studio.api.model.Order;
 
@@ -14,13 +15,36 @@ import ru.studio.api.model.Order;
 public class OrderServiceImpl implements OrderService
 {
 	String url = "http://localhost:8080/order";
+
 	HessianProxyFactory factory = new HessianProxyFactory();
 	OrderService orderService;
 
 	@Override
-	public Order createOrder()
+	public void removeOrder(Integer orderId)
 	{
-		return null;
+		try
+		{
+			orderService = (OrderService) factory.create(OrderService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		orderService.removeOrder(orderId);
+	}
+
+	@Override
+	public void removeServiceDate(int serviceDateId)
+	{
+		try
+		{
+			orderService = (OrderService) factory.create(OrderService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		orderService.removeServiceDate(serviceDateId);
 	}
 
 	@Override
@@ -44,14 +68,36 @@ public class OrderServiceImpl implements OrderService
 	}
 
 	@Override
-	public List<Order> getOrdersByUserId(Integer userId)
+	public List<TableDataOrder> getOrdersByUserId(Integer userId)
 	{
-		return null;
+		try
+		{
+			orderService = (OrderService) factory.create(OrderService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return orderService.getOrdersByUserId(userId);
 	}
 
 	@Override
 	public List<Order> getAllOrder()
 	{
 		return null;
+	}
+
+	@Override
+	public void updateOrder(Order order)
+	{
+		try
+		{
+			orderService = (OrderService) factory.create(OrderService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		orderService.updateOrder(order);
 	}
 }

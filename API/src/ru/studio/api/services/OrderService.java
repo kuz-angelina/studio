@@ -3,6 +3,7 @@ package ru.studio.api.services;
 import java.util.List;
 
 import ru.studio.api.model.Order;
+import ru.studio.api.model.table.TableDataOrder;
 
 /**
  * @author Angelina Kuzmina
@@ -10,14 +11,17 @@ import ru.studio.api.model.Order;
 public interface OrderService
 {
 
-	Order createOrder();
-
 	Order getOrderById(Integer id);
 
 	void saveOrder(Order order);
 
-	List<Order> getOrdersByUserId(Integer clientId);
+	List<TableDataOrder> getOrdersByUserId(Integer clientId);
 
 	List<Order> getAllOrder();
 
+	void updateOrder(Order order);
+
+	void removeOrder(Integer orderId);
+
+	void removeServiceDate(int serviceDateId);
 }

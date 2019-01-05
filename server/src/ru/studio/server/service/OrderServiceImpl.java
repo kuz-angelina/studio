@@ -7,6 +7,7 @@ import com.caucho.hessian.server.HessianServlet;
 import ru.studio.api.model.Order;
 import ru.studio.api.model.service.Service;
 import ru.studio.api.model.service.ServiceSewing;
+import ru.studio.api.model.table.TableDataOrder;
 import ru.studio.api.services.OrderService;
 import ru.studio.server.constaint.Constaint;
 import ru.studio.server.dao.OrderDao;
@@ -22,15 +23,21 @@ public class OrderServiceImpl extends HessianServlet implements OrderService
 	OrderDao orderDao = new OrderDaoImpl();
 
 	@Override
-	public Order createOrder()
+	public Order getOrderById(Integer id)
 	{
 		return null;
 	}
 
 	@Override
-	public Order getOrderById(Integer id)
+	public void removeServiceDate(int serviceDateId)
 	{
-		return null;
+		orderDao.removeServiceDate(serviceDateId);
+	}
+
+	@Override
+	public void removeOrder(Integer id)
+	{
+		orderDao.removeOrder(id);
 	}
 
 	@Override
@@ -47,9 +54,23 @@ public class OrderServiceImpl extends HessianServlet implements OrderService
 	}
 
 	@Override
-	public List<Order> getOrdersByUserId(Integer clientId)
+	public List<TableDataOrder> getOrdersByUserId(Integer clientId)
 	{
-		return null;
+
+		return orderDao.getOrdersByUserId(clientId);
+	}
+
+	@Override
+	public void updateOrder(Order order)
+	{
+		Service service = order.getService();
+		if (Constaint.SERVICE_TYPE_SEWING.equals(service.getServiceType().getName()))
+		{
+			ServiceSewing serviceSewing = (ServiceSewing) service;
+			orderDao.saveServiceDate(serviceSewing.getServiceDate());
+		}
+		orderDao.updateService(service, order.getId());
+		orderDao.updateOrder(order);
 	}
 
 	@Override

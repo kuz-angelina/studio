@@ -3,8 +3,6 @@ package ru.studio.client.app;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JFrame;
-
 import lombok.Getter;
 import lombok.Setter;
 import ru.studio.api.model.Order;
@@ -12,6 +10,7 @@ import ru.studio.api.model.clothes.ClotheType;
 import ru.studio.api.model.role.User;
 import ru.studio.api.model.service.RepairType;
 import ru.studio.api.model.service.ServiceType;
+import ru.studio.api.model.table.TableDataOrder;
 import ru.studio.api.services.AdvancedService;
 import ru.studio.api.services.OrderService;
 import ru.studio.api.services.UserService;
@@ -40,13 +39,6 @@ public class Studio
 		this.workClock = workClock;
 	}
 
-	//create order procedure
-	void createOrder()
-	{
-		Order order = orderServices.createOrder();
-		System.out.println("Order with id " + order.getId() + " create");
-	}
-
 	//get all orders
 	List<Order> getOrders()
 	{
@@ -62,14 +54,9 @@ public class Studio
 	}
 
 	//get orders by client
-	List<Order> getOrdersByUserId(User user)
+	public List<TableDataOrder> getOrdersByUserId(Integer id)
 	{
-		return orderServices.getOrdersByUserId(user.getId());
-	}
-
-	public boolean createTicket(JFrame gui)
-	{
-		return false;
+		return orderServices.getOrdersByUserId(id);
 	}
 
 	public User login(String login, String pass)
@@ -158,5 +145,20 @@ public class Studio
 	public void saveOrder(Order order)
 	{
 		orderServices.saveOrder(order);
+	}
+
+	public void updateOrder(Order order)
+	{
+		orderServices.updateOrder(order);
+	}
+
+	public void removeOrder(Integer orderId)
+	{
+		orderServices.removeOrder(orderId);
+	}
+
+	public void removeServiceDate(int serviceDateId)
+	{
+		orderServices.removeServiceDate(serviceDateId);
 	}
 }
