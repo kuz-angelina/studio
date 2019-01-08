@@ -134,6 +134,7 @@ public class MainClientGUI extends JFrame implements ActionListener
 		this.setSize(800, 450);
 
 		btLogin.addActionListener(this);
+		btAddOrder.addActionListener(this);
 		btEditOrder.addActionListener(this);
 		btDelOrder.addActionListener(this);
 
@@ -141,6 +142,7 @@ public class MainClientGUI extends JFrame implements ActionListener
 
 	private void initMainTab()
 	{
+
 		tabMainPanel.setLayout(null);
 		btStudio.setSize(200, 40);
 		btRepair.setSize(200, 40);
@@ -151,7 +153,6 @@ public class MainClientGUI extends JFrame implements ActionListener
 		btSewing.setLocation(10, 250);
 		btLogin.setLocation(670, 0);
 
-		btAddOrder.addActionListener(this);
 
 		tabMainPanel.add(btStudio);
 		tabMainPanel.add(btRepair);

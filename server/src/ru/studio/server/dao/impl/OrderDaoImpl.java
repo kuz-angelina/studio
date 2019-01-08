@@ -288,8 +288,7 @@ public class OrderDaoImpl implements OrderDao
 
 	private void getRepairOrdersByUserId(Integer id, List<TableDataOrder> tableDataOrders)
 	{
-		String SQL =
-						"select o.id order_id, o.tailor_assignment, c.name clothe_name, st.name servicetype_name, s.id service_id, rt.name repairtype_name, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join repairtypes rt on repair_type_id = rt.id inner join servicetypes st on service_type_id = st.id where u.id = ? order by o.id ASC";
+		String SQL = "select o.id order_id, o.tailor_assignment, c.name clothe_name, st.name servicetype_name, s.id service_id, rt.name repairtype_name, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join repairtypes rt on repair_type_id = rt.id inner join servicetypes st on service_type_id = st.id where u.id = ? and repair_type_id <> 0 order by o.id ASC";
 
 
 		try (Connection conn = connect();

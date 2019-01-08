@@ -70,7 +70,7 @@ public class Application
 	{
 		loginGUI = new LoginGUI(GUI_LOGIN);
 		addOrderGUI = new AddOrderGUI(GUI_ADD_ORDER);
-		editOrderGUI = new AddOrderGUI(GUI_ADD_ORDER, 0,0);
+		editOrderGUI = new AddOrderGUI(GUI_EDIT_ORDER, 0,0);
 		regGUI = new RegGUI(GUI_REG);
 		mainClientGUI = new MainClientGUI(GUI_CLIENT);
 		mainManagerGUI = new MainManagerGUI(GUI_MANAGER);
