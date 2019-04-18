@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.studio.api.model.Order;
 import ru.studio.api.model.clothes.ClotheType;
+import ru.studio.api.model.footwear.FootwearType;
 import ru.studio.api.model.role.User;
 import ru.studio.api.model.service.RepairType;
 import ru.studio.api.model.service.ServiceType;
@@ -115,6 +116,11 @@ public class Studio
 		return advancedService.getAllClothesType();
 	}
 
+	public List<FootwearType> getAllFootwearType()
+	{
+		return advancedService.getAllFootwearType();
+	}
+
 	public List<String> getAllClothesTypeName()
 	{
 		List<ClotheType> services = getAllClothesType();
@@ -127,9 +133,26 @@ public class Studio
 		return servicesName;
 	}
 
+	public List<String> getAllFootwearTypeName()
+	{
+		List<FootwearType> services = getAllFootwearType();
+		List<String> servicesName = new ArrayList<>();
+
+		for (FootwearType service : services)
+		{
+			servicesName.add(service.getName());
+		}
+		return servicesName;
+	}
+
 	public ClotheType getClotheTypeById(Integer clotheId)
 	{
 		return advancedService.getClotheTypeByID(clotheId);
+	}
+
+	public FootwearType getFootwearTypeById(Integer clotheId)
+	{
+		return advancedService.getFootwearTypeByID(clotheId);
 	}
 
 	public ServiceType getServiceTypeByID(Integer serviceTypeId)
@@ -161,4 +184,5 @@ public class Studio
 	{
 		orderServices.removeServiceDate(serviceDateId);
 	}
+
 }

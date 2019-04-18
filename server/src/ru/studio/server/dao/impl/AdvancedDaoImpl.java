@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ru.studio.api.model.clothes.ClotheType;
+import ru.studio.api.model.footwear.FootwearType;
 import ru.studio.api.model.service.RepairType;
 import ru.studio.api.model.service.ServiceType;
 import ru.studio.server.dao.AdvancedDao;
@@ -71,6 +72,35 @@ public class AdvancedDaoImpl implements AdvancedDao
 			System.out.println(ex.getMessage());
 		}
 		return clotheTypes;
+	}
+
+	@Override
+	public List<FootwearType> getAllFootwearTypes()
+	{
+		List<FootwearType> footwearTypes = new ArrayList<>();
+
+		String SQL = "SELECT id, name, size, color FROM footweartypes";
+
+		try (Connection conn = connect();
+				 Statement stmt = conn.createStatement())
+		{
+			ResultSet rs = stmt.executeQuery(SQL);
+
+			while (rs.next())
+			{
+				FootwearType footwearType = new FootwearType();
+				footwearType.setId(rs.getInt("id"));
+				footwearType.setName(rs.getString("name"));
+				footwearType.setSize(rs.getInt("size"));
+				footwearType.setColor(rs.getString("color"));
+				footwearTypes.add(footwearType);
+			}
+		}
+		catch (SQLException ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+		return footwearTypes;
 	}
 
 	@Override
@@ -161,6 +191,35 @@ public class AdvancedDaoImpl implements AdvancedDao
 	}
 
 	@Override
+	public FootwearType getFootwearTypeById(Integer id)
+	{
+		FootwearType footwearType = new FootwearType();
+
+		String SQL = "SELECT * "
+						+ "FROM clothetypes "
+						+ "WHERE id = ?";
+
+		try (Connection conn = connect();
+				 PreparedStatement pstmt = conn.prepareStatement(SQL))
+		{
+
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next())
+			{
+				footwearType.setId(rs.getInt("id"));
+				footwearType.setName(rs.getString("name"));
+			}
+		}
+		catch (SQLException ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+		return footwearType;
+	}
+
+	@Override
 	public List<RepairType> getAllRepairTypes()
 	{
 		List<RepairType> repairTypes = new ArrayList<>();
@@ -190,5 +249,68 @@ public class AdvancedDaoImpl implements AdvancedDao
 	public Connection connect() throws SQLException
 	{
 		return DriverManager.getConnection(JDBC_URL);
+	}
+
+	@Override
+	public void savefootwearType(FootwearType footwearType)
+	{
+		String SQL = "INSERT INTO footweartypes (\"name\", \"size\", \"color\") VALUES (?,?,?)";
+
+		try (Connection conn = connect();
+				 PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS))
+		{
+			pstmt.setString(1, footwearType.getName());
+			pstmt.setInt(2, footwearType.getSize());
+			pstmt.setString(3, footwearType.getColor());
+
+			pstmt.executeUpdate();
+
+			footwearType.setId(getModelId("ServiceDate", pstmt));
+		}
+		catch (SQLException ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+	}
+
+	@Override
+	public void updateFootwearType(FootwearType footwearType)
+	{
+		String SQL = "UPDATE footweartypes SET" +
+						"\"id\" = ?, " +
+						"\"name\" = ?, " +
+						"\"size\" = ?, " +
+						"\"color\" = ?, " +
+						"WHERE id = ?";
+
+		try (Connection conn = connect();
+				 PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS))
+		{
+			pstmt.setInt(1, footwearType.getId());
+			pstmt.setString(2, footwearType.getName());
+			pstmt.setInt(3, footwearType.getSize());
+			pstmt.setString(4, footwearType.getColor());
+
+			pstmt.executeUpdate();
+		}
+		catch (SQLException ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+	}
+
+	private int getModelId(String className, PreparedStatement pstmt) throws SQLException
+	{
+		try (ResultSet generatedKeys = pstmt.getGeneratedKeys())
+		{
+			if (generatedKeys.next())
+			{
+				return generatedKeys.getInt(1);
+			}
+			else
+			{
+				throw new SQLException("Save " + className + " in DB failed, no ID obtained.");
+			}
+		}
 	}
 }

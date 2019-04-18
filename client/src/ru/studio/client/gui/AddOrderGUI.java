@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Date;
 import java.util.List;
 
 import javax.swing.*;
@@ -13,6 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 import ru.studio.api.model.Order;
 import ru.studio.api.model.clothes.ClotheType;
+import ru.studio.api.model.footwear.FootwearType;
 import ru.studio.api.model.service.*;
 import ru.studio.client.app.Application;
 import ru.studio.client.app.Studio;
@@ -152,6 +152,8 @@ public class AddOrderGUI extends JFrame implements ActionListener
 	{
 		Integer clotheId = cbClotheType.getSelectedIndex() + 1;
 		ClotheType clotheType = studio.getClotheTypeById(clotheId);
+		Integer shoesId = cbClotheType.getSelectedIndex() + 1;
+		FootwearType shoewType = studio.getFootwearTypeById(clotheId);
 		Integer serviceTypeId = cbServiceType.getSelectedIndex() + 1;
 		ServiceType serviceType = studio.getServiceTypeByID(serviceTypeId);
 

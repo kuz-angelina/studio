@@ -6,6 +6,7 @@ import java.util.List;
 import com.caucho.hessian.client.HessianProxyFactory;
 
 import ru.studio.api.model.clothes.ClotheType;
+import ru.studio.api.model.footwear.FootwearType;
 import ru.studio.api.model.service.RepairType;
 import ru.studio.api.model.service.ServiceType;
 import ru.studio.api.services.AdvancedService;
@@ -65,6 +66,21 @@ public class AdvancedServiceImpl implements AdvancedService
 	}
 
 	@Override
+	public List<FootwearType> getAllFootwearType()
+	{
+
+		try
+		{
+			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return advancedService.getAllFootwearType();
+	}
+
+	@Override
 	public ClotheType getClotheTypeByID(Integer clotheId)
 	{
 		try
@@ -76,6 +92,20 @@ public class AdvancedServiceImpl implements AdvancedService
 			e.printStackTrace();
 		}
 		return advancedService.getClotheTypeByID(clotheId);
+	}
+
+	@Override
+	public FootwearType getFootwearTypeByID(Integer clotheId)
+	{
+		try
+		{
+			advancedService = (AdvancedService) factory.create(AdvancedService.class, url);
+		}
+		catch (MalformedURLException e)
+		{
+			e.printStackTrace();
+		}
+		return advancedService.getFootwearTypeByID(clotheId);
 	}
 
 	@Override
@@ -104,5 +134,11 @@ public class AdvancedServiceImpl implements AdvancedService
 			e.printStackTrace();
 		}
 		return advancedService.getRepairTypeById(repairTypeId);
+	}
+
+	@Override
+	public void savefootwearType(FootwearType footwearType)
+	{
+		advancedService.savefootwearType(footwearType);
 	}
 }

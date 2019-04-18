@@ -7,6 +7,7 @@ import java.util.List;
 import com.caucho.hessian.server.HessianServlet;
 
 import ru.studio.api.model.clothes.ClotheType;
+import ru.studio.api.model.footwear.FootwearType;
 import ru.studio.api.model.service.RepairType;
 import ru.studio.api.model.service.ServiceType;
 import ru.studio.api.services.AdvancedService;
@@ -53,9 +54,22 @@ public class AdvancedServiceImpl extends HessianServlet implements AdvancedServi
 	}
 
 	@Override
+	public List<FootwearType> getAllFootwearType()
+	{
+
+		return advancedDao.getAllFootwearTypes();
+	}
+
+	@Override
 	public ClotheType getClotheTypeByID(Integer clotheId)
 	{
 		return advancedDao.getClotheTypeById(clotheId);
+	}
+
+	@Override
+	public FootwearType getFootwearTypeByID(Integer clotheId)
+	{
+		return advancedDao.getFootwearTypeById(clotheId);
 	}
 
 	@Override
@@ -68,5 +82,17 @@ public class AdvancedServiceImpl extends HessianServlet implements AdvancedServi
 	public RepairType getRepairTypeById(Integer repairTypeId)
 	{
 		return advancedDao.getRepairTypeById(repairTypeId);
+	}
+
+	@Override
+	public void savefootwearType(FootwearType footwearType)
+	{
+		advancedDao.savefootwearType(footwearType);
+	}
+
+	@Override
+	public void updatefootwearType(FootwearType footwearType)
+	{
+		advancedDao.updateFootwearType(footwearType);
 	}
 }
