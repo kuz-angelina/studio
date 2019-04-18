@@ -277,19 +277,18 @@ public class AdvancedDaoImpl implements AdvancedDao
 	public void updateFootwearType(FootwearType footwearType)
 	{
 		String SQL = "UPDATE footweartypes SET" +
-						"\"id\" = ?, " +
 						"\"name\" = ?, " +
 						"\"size\" = ?, " +
-						"\"color\" = ?, " +
+						"\"color\" = ? " +
 						"WHERE id = ?";
 
 		try (Connection conn = connect();
 				 PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS))
 		{
-			pstmt.setInt(1, footwearType.getId());
-			pstmt.setString(2, footwearType.getName());
-			pstmt.setInt(3, footwearType.getSize());
-			pstmt.setString(4, footwearType.getColor());
+			pstmt.setString(1, footwearType.getName());
+			pstmt.setInt(2, footwearType.getSize());
+			pstmt.setString(3, footwearType.getColor());
+			pstmt.setInt(4, footwearType.getId());
 
 			pstmt.executeUpdate();
 		}

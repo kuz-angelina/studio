@@ -14,11 +14,6 @@ import ru.studio.api.model.footwear.FootwearType;
 import ru.studio.api.services.AdvancedService;
 import ru.studio.server.service.AdvancedServiceImpl;
 
-
-/**
- * @author viacheslav.iakovitskii@novardis.com
- * Created on 4/18/19
- */
 public class ConApp
 {
 	private AdvancedService advancedService = new AdvancedServiceImpl();
@@ -58,6 +53,8 @@ public class ConApp
 	{
 		FootwearType footwearType = new FootwearType();
 		initFooterWear(footwearType);
+		advancedService.savefootwearType(footwearType);
+		printFooter();
 		editorNewFootwear();
 	}
 
@@ -77,10 +74,8 @@ public class ConApp
 		reader = new BufferedReader(new InputStreamReader(System.in));
 		footwearType.setColor(reader.readLine());
 
-		advancedService.savefootwearType(footwearType);
 		System.out.println("Изменения сохранены в БД");
 
-		printFooter();
 	}
 
 	private void editFooterWear() throws IOException
@@ -89,6 +84,8 @@ public class ConApp
 		reader = new BufferedReader(new InputStreamReader(System.in));
 		FootwearType footwearTypeByID = advancedService.getFootwearTypeByID(Integer.valueOf(reader.readLine()));
 		initFooterWear(footwearTypeByID);
+		advancedService.updatefootwearType(footwearTypeByID);
+		printFooter();
 		editorNewFootwear();
 	}
 
