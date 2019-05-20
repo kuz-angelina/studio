@@ -141,4 +141,9 @@ public class AdvancedServiceImpl implements AdvancedService
 	{
 		advancedService.savefootwearType(footwearType);
 	}
+
+	@Override
+	public void updatefootwearType(FootwearType footwearType) {
+
+	}
 }
