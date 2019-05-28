@@ -66,6 +66,8 @@ public class OrderDaoImpl implements OrderDao
 	@Override
 	public void updateService(Service service, Integer id)
 	{
+		service.setId(getOrderById(id).getServiceId());
+
 		String serviceClassName = service.getClass().getSimpleName();
 		String SQL = "UPDATE services set \"quantity\"=?, \"service_type_id\"=?, \"service_date_id\"=?, \"repair_type_id\"=? where id = ?";
 
@@ -75,6 +77,7 @@ public class OrderDaoImpl implements OrderDao
 			prepareServiceQueryParameter(service, serviceClassName, pstmt);
 
 			pstmt.executeUpdate();
+			service.setId(getModelId(serviceClassName, pstmt));
 		}
 		catch (SQLException ex)
 		{
@@ -202,7 +205,7 @@ public class OrderDaoImpl implements OrderDao
 	@Override
 	public void removeOrder(Integer id)
 	{
-		String SQL = "delete from services WHERE id = ?";
+		String SQL = "delete from orders WHERE id = ?";
 
 		try (Connection conn = connect();
 				 PreparedStatement pstmt = conn.prepareStatement(SQL))
@@ -288,7 +291,8 @@ public class OrderDaoImpl implements OrderDao
 
 	private void getRepairOrdersByUserId(Integer id, List<TableDataOrder> tableDataOrders)
 	{
-		String SQL = "select o.id order_id, o.tailor_assignment, c.name clothe_name, st.name servicetype_name, s.id service_id, rt.name repairtype_name, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join repairtypes rt on repair_type_id = rt.id inner join servicetypes st on service_type_id = st.id where u.id = ? and repair_type_id <> 0 order by o.id ASC";
+		String SQL =
+						"select o.id order_id, o.tailor_assignment, c.name clothe_name, st.name servicetype_name, s.id service_id, rt.name repairtype_name, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join repairtypes rt on repair_type_id = rt.id inner join servicetypes st on service_type_id = st.id where u.id = ? and repair_type_id <> 0 order by o.id ASC";
 
 
 		try (Connection conn = connect();
@@ -324,11 +328,90 @@ public class OrderDaoImpl implements OrderDao
 	}
 
 	@Override
-	public Order getOrderById(Integer id)
+	public TableDataOrder getOrderById(Integer id)
 	{
-		return null;
+		List<TableDataOrder> tableDataOrders = new ArrayList<>();
+		getRepairOrdersByOrderId(id, tableDataOrders);
+		getSewingOrdersByOrderId(id, tableDataOrders);
+		return tableDataOrders.size() > 0 ? tableDataOrders.get(0) : null;
 	}
 
+	private void getSewingOrdersByOrderId(Integer id, List<TableDataOrder> tableDataOrders)
+	{
+		String SQL =
+						"select o.id order_id, o.tailor_assignment, c.id clothe_id, st.id servicetype_id, s.id service_id, sd.id servicedate_id, sd.measurements, sd.modeling, sd.pattern, sd.stitching, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join servicedates sd on service_date_id = sd.id inner join servicetypes st on service_type_id = st.id where o.id = ? and sd.id <> 0 order by o.id ASC";
+
+
+		try (Connection conn = connect();
+				 PreparedStatement pstmt = conn.prepareStatement(SQL))
+		{
+
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next())
+			{
+				TableDataOrder tableDataOrder = new TableDataOrder();
+				tableDataOrder.setId(rs.getInt("order_id"));
+				tableDataOrder.setTailorAssignment(rs.getBoolean("tailor_assignment"));
+				tableDataOrder.setClotherTypeId(rs.getInt("clothe_id"));
+				tableDataOrder.setServiceTypeId(rs.getInt("servicetype_id"));
+				tableDataOrder.setServiceId(rs.getInt("service_id"));
+				tableDataOrder.setRepairType("-");
+				tableDataOrder.setServiceDateId(rs.getInt("servicedate_id"));
+				tableDataOrder.setMeasurements(rs.getString("measurements"));
+				tableDataOrder.setModeling(rs.getString("modeling"));
+				tableDataOrder.setPattern(rs.getString("pattern"));
+				tableDataOrder.setStitching(rs.getString("stitching"));
+				tableDataOrder.setCost(rs.getDouble("cost"));
+				tableDataOrder.setComplete(rs.getBoolean("complete"));
+				tableDataOrder.setGivenOut(rs.getBoolean("given_out"));
+				tableDataOrders.add(tableDataOrder);
+			}
+		}
+		catch (SQLException ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+	}
+
+	private void getRepairOrdersByOrderId(Integer id, List<TableDataOrder> tableDataOrders)
+	{
+		String SQL =
+						"select o.id order_id, o.tailor_assignment, c.id clothe_id, st.id servicetype_id, s.id service_id, rt.id repairtype_id, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join repairtypes rt on repair_type_id = rt.id inner join servicetypes st on service_type_id = st.id where o.id = ? and repair_type_id <> 0 order by o.id ASC";
+
+
+		try (Connection conn = connect();
+				 PreparedStatement pstmt = conn.prepareStatement(SQL))
+		{
+
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next())
+			{
+				TableDataOrder tableDataOrder = new TableDataOrder();
+				tableDataOrder.setId(rs.getInt("order_id"));
+				tableDataOrder.setTailorAssignment(rs.getBoolean("tailor_assignment"));
+				tableDataOrder.setClotherTypeId(rs.getInt("clothe_id"));
+				tableDataOrder.setServiceId(rs.getInt("service_id"));
+				tableDataOrder.setServiceTypeId(rs.getInt("servicetype_id"));
+				tableDataOrder.setRepairTypeId(rs.getInt("repairtype_id"));
+				tableDataOrder.setMeasurements("-");
+				tableDataOrder.setModeling("-");
+				tableDataOrder.setPattern("-");
+				tableDataOrder.setStitching("-");
+				tableDataOrder.setCost(rs.getDouble("cost"));
+				tableDataOrder.setComplete(rs.getBoolean("complete"));
+				tableDataOrder.setGivenOut(rs.getBoolean("given_out"));
+				tableDataOrders.add(tableDataOrder);
+			}
+		}
+		catch (SQLException ex)
+		{
+			System.out.println(ex.getMessage());
+		}
+	}
 
 	public Connection connect() throws SQLException
 	{

@@ -3,6 +3,7 @@ package ru.studio.api.services;
 import java.util.List;
 
 import ru.studio.api.model.Order;
+import ru.studio.api.model.role.Client;
 import ru.studio.api.model.table.TableDataOrder;
 
 /**
@@ -11,7 +12,7 @@ import ru.studio.api.model.table.TableDataOrder;
 public interface OrderService
 {
 
-	Order getOrderById(Integer id);
+	TableDataOrder getOrderById(Integer id);
 
 	void saveOrder(Order order);
 
@@ -24,4 +25,6 @@ public interface OrderService
 	void removeOrder(Integer orderId);
 
 	void removeServiceDate(int serviceDateId);
+
+	Order initOrder(Client client, int clotheId, int repairTypeId, int serviceTypeId);
 }

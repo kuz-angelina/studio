@@ -16,7 +16,6 @@ import ru.studio.server.dao.impl.UserDaoImp;
 
 public class UserServiceImpl extends HessianServlet implements UserService
 {
-
 	UserDao userDao = new UserDaoImp();
 
 	@Override
@@ -44,9 +43,7 @@ public class UserServiceImpl extends HessianServlet implements UserService
 //		users.put(manager.getName(), manager);
 //		users.put(tailor.getName(), tailor);
 
-		User user = userDao.getUserByLogin(login);
-
-		return user;
+		return userDao.getUserByLogin(login);
 	}
 
 	@Override

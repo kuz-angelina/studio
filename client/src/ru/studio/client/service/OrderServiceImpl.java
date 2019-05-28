@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.caucho.hessian.client.HessianProxyFactory;
 
+import ru.studio.api.model.role.Client;
 import ru.studio.api.model.table.TableDataOrder;
 import ru.studio.api.services.OrderService;
 import ru.studio.api.model.Order;
@@ -48,7 +49,13 @@ public class OrderServiceImpl implements OrderService
 	}
 
 	@Override
-	public Order getOrderById(Integer id)
+	public Order initOrder(Client client, int clotheId, int repairTypeId, int serviceTypeId)
+	{
+		return null;
+	}
+
+	@Override
+	public TableDataOrder getOrderById(Integer id)
 	{
 		return null;
 	}

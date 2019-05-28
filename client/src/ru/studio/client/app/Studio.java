@@ -46,14 +46,6 @@ public class Studio
 		return orderServices.getAllOrder();
 	}
 
-	//edit order procedure
-	void editOrder(Integer id)
-	{
-		Order order = orderServices.getOrderById(id);
-		//modify fields
-		orderServices.saveOrder(order);
-	}
-
 	//get orders by client
 	public List<TableDataOrder> getOrdersByUserId(Integer id)
 	{

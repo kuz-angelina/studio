@@ -23,7 +23,7 @@ public interface OrderDao
 
 	List<TableDataOrder> getOrdersByUserId(Integer id);
 
-	Order getOrderById(Integer id);
+	TableDataOrder getOrderById(Integer id);
 
 	void updateService(Service service, Integer id);
 
