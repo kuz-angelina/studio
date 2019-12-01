@@ -3,10 +3,10 @@ package ru.studio.server.dao;
 
 import java.util.List;
 
-import ru.studio.api.model.clothes.ClotheType;
-import ru.studio.api.model.footwear.FootwearType;
-import ru.studio.api.model.service.RepairType;
-import ru.studio.api.model.service.ServiceType;
+import com.example.androidstudio.model.clothes.ClotheType;
+import com.example.androidstudio.model.footwear.FootwearType;
+import com.example.androidstudio.model.service.RepairType;
+import com.example.androidstudio.model.service.ServiceType;
 
 /**
  * @author Angelina Kuzmina

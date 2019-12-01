@@ -2,10 +2,14 @@
 
 package ru.studio.server.service;
 
-import com.caucho.hessian.server.HessianServlet;
+import java.util.List;
 
-import ru.studio.api.model.role.User;
-import ru.studio.api.services.UserService;
+import com.caucho.hessian.server.HessianServlet;
+import com.example.androidstudio.model.UserDto;
+import com.example.androidstudio.model.role.User;
+import com.example.androidstudio.model.role.UserType;
+import com.example.androidstudio.services.UserService;
+
 import ru.studio.server.dao.UserDao;
 import ru.studio.server.dao.impl.UserDaoImp;
 
@@ -31,19 +35,15 @@ public class UserServiceImpl extends HessianServlet implements UserService
 	}
 
 	@Override
-	public User getUserByLogin(String login)
+	public UserDto getUserByLogin(String login)
 	{
-//		Map<String, User> users = new HashMap<>();
-//
-//		Client client = new Client(1, "Vasya", "123", "Vasya", "emailV", "777");
-//		Manager manager = new Manager(1, "Petya", "123", "Petya");
-//		Tailor tailor = new Tailor(1, "Kolya", "123", "Kolya", "999", "addrK", 2, new Date());
-//
-//		users.put(client.getName(), client);
-//		users.put(manager.getName(), manager);
-//		users.put(tailor.getName(), tailor);
-
 		return userDao.getUserByLogin(login);
+	}
+
+	@Override
+	public List<UserType> getAllUserType()
+	{
+		return userDao.getAllUserType();
 	}
 
 	@Override

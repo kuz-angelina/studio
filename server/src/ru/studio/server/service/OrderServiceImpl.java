@@ -6,17 +6,20 @@ import static ru.studio.server.constaint.Constaint.SERVICE_TYPE_SEWING;
 import java.util.List;
 
 import com.caucho.hessian.server.HessianServlet;
+import com.example.androidstudio.model.Order;
+import com.example.androidstudio.model.UserDto;
+import com.example.androidstudio.model.clothes.ClotheType;
+import com.example.androidstudio.model.role.Client;
+import com.example.androidstudio.model.service.*;
+import com.example.androidstudio.model.table.TableDataOrder;
+import com.example.androidstudio.services.OrderService;
 
-import ru.studio.api.model.Order;
-import ru.studio.api.model.clothes.ClotheType;
-import ru.studio.api.model.role.Client;
-import ru.studio.api.model.service.*;
-import ru.studio.api.model.table.TableDataOrder;
-import ru.studio.api.services.OrderService;
 import ru.studio.server.dao.AdvancedDao;
 import ru.studio.server.dao.OrderDao;
+import ru.studio.server.dao.UserDao;
 import ru.studio.server.dao.impl.AdvancedDaoImpl;
 import ru.studio.server.dao.impl.OrderDaoImpl;
+import ru.studio.server.dao.impl.UserDaoImp;
 
 
 /**
@@ -25,8 +28,9 @@ import ru.studio.server.dao.impl.OrderDaoImpl;
 
 public class OrderServiceImpl extends HessianServlet implements OrderService
 {
+	private UserDao userDao = new UserDaoImp();
 	private OrderDao orderDao = new OrderDaoImpl();
-	AdvancedDao advancedDao = new AdvancedDaoImpl();
+	private AdvancedDao advancedDao = new AdvancedDaoImpl();
 
 	@Override
 	public TableDataOrder getOrderById(Integer id)
@@ -47,8 +51,9 @@ public class OrderServiceImpl extends HessianServlet implements OrderService
 	}
 
 	@Override
-	public void saveOrder(Order order)
+	public void saveOrder(TableDataOrder dataOrder)
 	{
+		Order order = initOrder(dataOrder.getId(), dataOrder.getClientLogin(), dataOrder.getClotherTypeId(), dataOrder.getRepairTypeId(), dataOrder.getServiceTypeId());
 		Service service = order.getService();
 		if (SERVICE_TYPE_SEWING.equals(service.getServiceType().getName()))
 		{
@@ -62,13 +67,13 @@ public class OrderServiceImpl extends HessianServlet implements OrderService
 	@Override
 	public List<TableDataOrder> getOrdersByUserId(Integer clientId)
 	{
-
 		return orderDao.getOrdersByUserId(clientId);
 	}
 
 	@Override
-	public void updateOrder(Order order)
+	public void updateOrder(TableDataOrder dataOrder)
 	{
+		Order order = initOrder(dataOrder.getId(), dataOrder.getClientLogin(), dataOrder.getClotherTypeId(), dataOrder.getRepairTypeId(), dataOrder.getServiceTypeId());
 		Service service = order.getService();
 		if (SERVICE_TYPE_SEWING.equals(service.getServiceType().getName()))
 		{
@@ -86,8 +91,10 @@ public class OrderServiceImpl extends HessianServlet implements OrderService
 	}
 
 	@Override
-	public Order initOrder(Client client, int clotheId, int repairTypeId, int serviceTypeId)
+	public Order initOrder(Integer orderId, String clientLogin, int clotheId, int repairTypeId, int serviceTypeId)
 	{
+		UserDto userDto = userDao.getUserByLogin(clientLogin);
+		Client client = new Client(userDto);
 //		Integer clotheId = cbClotheType.getSelectedIndex() + 1;
 		ClotheType clotheType = advancedDao.getClotheTypeById(clotheId);
 //		Integer serviceTypeId = cbServiceType.getSelectedIndex() + 1;
@@ -115,6 +122,10 @@ public class OrderServiceImpl extends HessianServlet implements OrderService
 		service.setQuantity(5);
 
 		Order order = new Order();
+		if (orderId != null)
+		{
+			order.setId(orderId);
+		}
 		order.setClient(client);
 		order.setClothesType(clotheType);
 		order.setService(service);

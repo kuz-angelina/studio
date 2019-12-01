@@ -1,4 +1,4 @@
-package ru.studio.api.model.role;
+package com.example.androidstudio.model.role;
 
 import java.util.Date;
 

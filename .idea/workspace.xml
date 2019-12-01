@@ -2,56 +2,66 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="web:war exploded" />
+      <artifact name="server:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4feee81c-5424-4204-863a-6a4a36d16f16" name="Default Changelist" comment="fix same bugs">
-      <change afterPath="$PROJECT_DIR$/lib/jstl-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/ru/studio/web/controllers/Auth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/ru/studio/web/controllers/Orders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersAdd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersEdit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersRemove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/css/style_orders.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/img/bg_img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/img/bg_old.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/pages/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/web/pages/orders.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/src/ru/studio/api/model/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/clothes/ClotheType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/footwear/FootwearType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/role/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/role/Manager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/role/Tailor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/role/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/role/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/service/RepairType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/service/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/service/ServiceDate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/service/ServiceRepair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/service/ServiceSewing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/service/ServiceType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model/table/TableDataOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/services/AdvancedService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/services/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/server_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/API.iml" beforeDir="false" afterPath="$PROJECT_DIR$/API/API.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/Tailor.java" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/Tailor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/ru/studio/api/model/role/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/ru/studio/api/model/table/TableDataOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/ru/studio/api/model/table/TableDataOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/src/ru/studio/api/services/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/ru/studio/api/services/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/ru/studio/client/app/Studio.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/ru/studio/client/app/Studio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/ru/studio/client/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/ru/studio/client/service/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/postgresql-42.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/ru/studio/api/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/API/src/ru/studio/api/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/console/ConApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/console/ConApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/constaint/Constaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/constaint/Constaint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/dao/AdvancedDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/dao/AdvancedDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/dao/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/AdvancedDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/AdvancedDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/UserDaoImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/UserDaoImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/service/AdvancedServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/service/AdvancedServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/service/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/service/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/ru/studio/server/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/ru/studio/server/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/studio.iml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="out/" />
-    <ignored path=".idea/" />
-    <ignored mask="*.iml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="PARALLEL_COMPILATION" value="true" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -67,25 +77,33 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@192.168.4.205" type="feb32156:DbDataSourceImpl" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@192.168.4.205" type="feb32156:DbDataSourceImpl" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@192.168.4.205" type="feb32156:DbDataSourceImpl" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="studoiDB: database" type="162271b6:PgImplModel$Database" />
+        <item name="studiodb: database" type="162271b6:PgImplModel$Database" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@192.168.4.205" type="feb32156:DbDataSourceImpl" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="studoiDB: database" type="162271b6:PgImplModel$Database" />
+        <item name="studiodb: database" type="162271b6:PgImplModel$Database" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="studiodb: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
       </path>
     </expand>
     <select />
@@ -96,289 +114,6 @@
   <component name="FavoritesManager">
     <favorites_list name="studio" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/web/pages/orders.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="116" column="23" lean-forward="true" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/web/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/dao/OrderDao.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/web/js/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersAdd.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/web/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="66" column="27" lean-forward="true" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersEdit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/web/css/style_orders.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/service/OrderServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/app/Studio.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-              <folding>
-                <element signature="e#1122#1123#0" expanded="true" />
-                <element signature="e#1163#1164#0" expanded="true" />
-                <element signature="e#3865#3866#0" expanded="true" />
-                <element signature="e#3904#3905#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/table/TableDataOrder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/service/Service.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/OrderDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1045">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceRepair.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/UserDaoImp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="47" column="13" selection-start-line="47" selection-end-line="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/Order.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-              <folding>
-                <element signature="docComment;class#Order#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceSewing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/web/pages/login.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="2" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/Orders.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/Auth.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/constaint/Constaint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/services/OrderService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/service/OrderServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
-              <folding>
-                <element signature="e#1170#1171#0" expanded="true" />
-                <element signature="e#1188#1189#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersRemove.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/service/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -387,23 +122,10 @@
         <option value="Interface" />
         <option value="CSS File" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>patter</find>
-      <find>primary</find>
-      <find>btn-primary</find>
-      <find>&quot;servicetype</find>
-      <find>&quot;repairType</find>
-      <find>error_auth_ok_js</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -413,119 +135,15 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/Authorisation.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/Start.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/StartApplication_1.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/StudioTab.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/ListPanel.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/Registration.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/SubmitApplication.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/AddOrder.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/TableButtonListener.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/GUI_Manager.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/swing/MainFrame.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/LoginGUI.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/service/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/AppStart.java" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/dao/UserDaoImp.java" />
-        <option value="$PROJECT_DIR$/API/src/ru/studio/api/model/service/Service.java" />
-        <option value="$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceRepair.java" />
-        <option value="$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceType.java" />
-        <option value="$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceDate.java" />
-        <option value="$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceSewing.java" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/dao/OrderDao.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/app/Application.java" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/AdvancedDaoImpl.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/service/AdvancedServiceImpl.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/server/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/console/ConApp.java" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/service/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/constaint/Constaint.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/gui/MainClientGUI.java" />
-        <option value="$PROJECT_DIR$/web/src/ru/studio/web/controllers/orders.java" />
-        <option value="$PROJECT_DIR$/web/src/ru/studio/web/controllers/auth.java" />
-        <option value="$PROJECT_DIR$/web/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/service/OrderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/web/web/pages/login.jsp" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/service/OrderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/API/src/ru/studio/api/model/table/TableDataOrder.java" />
-        <option value="$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/OrderDaoImpl.java" />
-        <option value="$PROJECT_DIR$/web/web/js/login.js" />
-        <option value="$PROJECT_DIR$/web/web/css/style_orders.css" />
-        <option value="$PROJECT_DIR$/web/src/ru/studio/web/controllers/Auth.java" />
-        <option value="$PROJECT_DIR$/web/web/index.jsp" />
-        <option value="$PROJECT_DIR$/web/web/js/main.js" />
-        <option value="$PROJECT_DIR$/web/src/ru/studio/web/controllers/Orders.java" />
-        <option value="$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersAdd.java" />
-        <option value="$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersEdit.java" />
-        <option value="$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersRemove.java" />
-        <option value="$PROJECT_DIR$/client/src/ru/studio/client/app/Studio.java" />
-        <option value="$PROJECT_DIR$/web/web/pages/orders.jsp" />
-        <option value="$PROJECT_DIR$/web/web/css/style.css" />
-      </list>
-    </option>
-  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
-    <option name="y" value="30" />
-    <option name="width" value="1920" />
-    <option name="height" value="1049" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-          <State>
-            <id>Java</id>
-          </State>
-          <State>
-            <id>Probable bugsJava</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>IgnoreResultOfCall</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
+  <component name="ProjectId" id="1UIMAuPGStSc0U2HWcfIpl499XA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <flattenPackages ProjectPane="false" />
-      <hideEmptyPackages ProjectPane="true" />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="studio" type="b2602c69:ProjectViewProjectNode" />
-              <item name="studio" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -539,29 +157,33 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557146896565" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/web/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web/web" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.studio.client.gui.swing" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ru.studio.client.gui.swing" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio" />
+      <recent name="$PROJECT_DIR$/api.mobile/src/com/example/androidstudio/model" />
       <recent name="$PROJECT_DIR$/web/web/img" />
       <recent name="$PROJECT_DIR$/server/src/ru/studio/server" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.androidstudio.model.table" />
+      <recent name="ru.studio.api.model" />
+      <recent name="ru.studio.client.gui.swing" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -576,7 +198,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat (web)">
+  <component name="RunManager" selected="Tomcat Server.Tomcat(server)">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -669,6 +291,7 @@
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_studio_2" />
+        <option name="HTTP_PORT" value="8080" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -763,7 +386,7 @@
         </option>
       </method>
     </configuration>
-    <configuration name="Tomcat(server)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Tomcat(server)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -882,6 +505,16 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
@@ -951,6 +584,11 @@
       <workItem from="1558955663551" duration="17676000" />
       <workItem from="1559035842022" duration="16520000" />
       <workItem from="1559055276307" duration="4914000" />
+      <workItem from="1575039523471" duration="743000" />
+      <workItem from="1575040291686" duration="10593000" />
+      <workItem from="1575095583275" duration="25855000" />
+      <workItem from="1575150705221" duration="11727000" />
+      <workItem from="1575166131393" duration="2048000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1545685805373</created>
@@ -1029,93 +667,15 @@
       <option name="project" value="LOCAL" />
       <updated>1555585790694</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Revert &quot;fix edit form&quot;&#10;&#10;This reverts commit 372ceef8">
+      <created>1575040199729</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1575040199729</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206041000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="1920" y="30" width="1920" height="1049" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49486652" visible="true" weight="0.10992529" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" sideWeight="0.50513345" side_tool="true" weight="0.2" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info id="JRebel" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32844576" />
-      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" visible="true" weight="0.17313746" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Terminal" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.17103882" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.22455405" />
-      <window_info anchor="bottom" id="Hybris Console" order="12" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Application Servers" order="14" weight="0.3286119" />
-      <window_info anchor="bottom" id="JRebel Executor" order="15" />
-      <window_info anchor="bottom" id="JRebel Console" order="16" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.32977587" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Debug" order="9" weight="0.33191034" />
-      <window_info anchor="right" id="Maven Projects" order="10" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="11" side_tool="true" weight="0.3295302" />
-      <window_info anchor="right" id="Key Promoter X" order="12" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49486652" visible="true" weight="0.22214764" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" sideWeight="0.50513345" side_tool="true" weight="0.2" />
-      <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32844576" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.3427762" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Terminal" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.17422096" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.6558074" />
-      <window_info anchor="bottom" id="Hybris Console" order="12" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" />
-      <window_info anchor="bottom" id="Application Servers" order="14" weight="0.3286119" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.32977587" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Debug" order="9" weight="0.3295302" />
-      <window_info anchor="right" id="Maven Projects" order="10" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="11" side_tool="true" weight="0.3295302" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1126,20 +686,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -1176,7 +723,8 @@
     <MESSAGE value="fix" />
     <MESSAGE value="GUI refactoring" />
     <MESSAGE value="fix same bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix same bugs" />
+    <MESSAGE value="Revert &quot;fix edit form&quot;&#10;&#10;This reverts commit 372ceef8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;fix edit form&quot;&#10;&#10;This reverts commit 372ceef8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1184,19 +732,16 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/gui/LoginGUI.java</url>
           <line>51</line>
-          <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/app/Application.java</url>
           <line>159</line>
-          <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/ru/studio/client/app/Studio.java</url>
           <line>57</line>
-          <properties />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
@@ -1204,517 +749,5 @@
         <breakpoint suspend="THREAD" type="java-line" />
       </breakpoints-defaults>
     </breakpoint-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateExpression">
-      <expression>
-        <expression-string>req.getParameter(&quot;orderId&quot;) != null</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>req.getParameter(&quot;orderId&quot;) != null ? Integer.parseInt(req.getParameter(&quot;orderId&quot;)) : null</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>req.getParameter(&quot;orderId&quot;)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>client.getId()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>orderService.getOrdersByUserId(client.getId())</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>ServiceType.values()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>app.getAddOrderGUI().getRootPanel().getComponents()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>app.getAddOrderGUI().getCbServiceType().getModel()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>app.getAddOrderGUI()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/gui/ListPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="13" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="14" column="21" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/Price.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="20" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/service/AdvancedServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2565">
-          <caret line="149" selection-start-line="149" selection-end-line="149" />
-          <folding>
-            <element signature="docComment;class#AdvancedServiceImpl#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/dao/AdvancedDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers.java" />
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/role/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/services/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/console/ConApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-855">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/servlet-api.jar!/javax/servlet/RequestDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/gui/StartApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/gui/MainClientGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1387">
-          <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
-          <folding>
-            <element signature="docComment;class#MainClientGUI#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms2.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/gui/AddOrderGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/app/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="72" column="24" lean-forward="true" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/service/Service.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceRepair.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/UserDaoImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="47" column="13" selection-start-line="47" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="docComment;class#Order#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/service/ServiceSewing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/stream/ReferencePipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7372">
-          <caret line="488" column="26" selection-start-line="488" selection-start-column="26" selection-end-line="488" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/img/bg_img.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/Auth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/constaint/Constaint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="47" lean-forward="true" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/pages/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/dao/OrderDao.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/dao/impl/OrderDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/Orders.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/services/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/service/OrderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="e#1170#1171#0" expanded="true" />
-            <element signature="e#1188#1189#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/service/OrderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/ru/studio/web/controllers/OrdersRemove.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/pages/orders.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="116" column="23" lean-forward="true" selection-start-line="116" selection-start-column="23" selection-end-line="116" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/ru/studio/client/app/Studio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1163#1164#0" expanded="true" />
-            <element signature="e#3865#3866#0" expanded="true" />
-            <element signature="e#3904#3905#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/css/style_orders.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/API/src/ru/studio/api/model/table/TableDataOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/ru/studio/server/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="52" lean-forward="true" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="66" column="27" lean-forward="true" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>server:war exploded</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>jstl-1.2</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

@@ -1,10 +1,9 @@
-package ru.studio.api.services;
+package com.example.androidstudio.services;
 
 import java.util.List;
 
-import ru.studio.api.model.Order;
-import ru.studio.api.model.role.Client;
-import ru.studio.api.model.table.TableDataOrder;
+import com.example.androidstudio.model.Order;
+import com.example.androidstudio.model.table.TableDataOrder;
 
 /**
  * @author Angelina Kuzmina
@@ -26,7 +25,5 @@ public interface OrderService
 
 	void removeServiceDate(int serviceDateId);
 
-	Order initOrder(Client client, int clotheId, int repairTypeId, int serviceTypeId);
-
-	Order initOrder(int clotheId, int repairTypeId, int serviceTypeId);
+	Order initOrder(Integer orderId, String clientLogin, int clotheId, int repairTypeId, int serviceTypeId);
 }

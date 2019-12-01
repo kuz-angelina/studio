@@ -5,12 +5,12 @@ package ru.studio.server.service;
 import java.util.List;
 
 import com.caucho.hessian.server.HessianServlet;
+import com.example.androidstudio.model.clothes.ClotheType;
+import com.example.androidstudio.model.footwear.FootwearType;
+import com.example.androidstudio.model.service.RepairType;
+import com.example.androidstudio.model.service.ServiceType;
+import com.example.androidstudio.services.AdvancedService;
 
-import ru.studio.api.model.clothes.ClotheType;
-import ru.studio.api.model.footwear.FootwearType;
-import ru.studio.api.model.service.RepairType;
-import ru.studio.api.model.service.ServiceType;
-import ru.studio.api.services.AdvancedService;
 import ru.studio.server.dao.AdvancedDao;
 import ru.studio.server.dao.impl.AdvancedDaoImpl;
 

@@ -8,12 +8,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.studio.api.model.Order;
-import ru.studio.api.model.service.Service;
-import ru.studio.api.model.service.ServiceDate;
-import ru.studio.api.model.service.ServiceRepair;
-import ru.studio.api.model.service.ServiceSewing;
-import ru.studio.api.model.table.TableDataOrder;
+import com.example.androidstudio.model.Order;
+import com.example.androidstudio.model.service.Service;
+import com.example.androidstudio.model.service.ServiceDate;
+import com.example.androidstudio.model.service.ServiceRepair;
+import com.example.androidstudio.model.service.ServiceSewing;
+import com.example.androidstudio.model.table.TableDataOrder;
+
 import ru.studio.server.constaint.Constaint;
 import ru.studio.server.dao.OrderDao;
 
@@ -69,7 +70,7 @@ public class OrderDaoImpl implements OrderDao
 		service.setId(getOrderById(id).getServiceId());
 
 		String serviceClassName = service.getClass().getSimpleName();
-		String SQL = "UPDATE services set \"quantity\"=?, \"service_type_id\"=?, \"service_date_id\"=?, \"repair_type_id\"=? where id = ?";
+		String SQL = "UPDATE services set \"quantity\"=?, \"servicetype_id\"=?, \"servicedate_id\"=?, \"repairtype_id\"=? where id = ?";
 
 		try (Connection conn = connect();
 				 PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS))
@@ -89,7 +90,7 @@ public class OrderDaoImpl implements OrderDao
 	public void saveService(Service service)
 	{
 		String serviceClassName = service.getClass().getSimpleName();
-		String SQL = "INSERT INTO services (\"quantity\", \"service_type_id\", \"service_date_id\", \"repair_type_id\" ) VALUES (?,?,?,?)";
+		String SQL = "INSERT INTO services (\"quantity\", \"servicetype_id\", \"servicedate_id\", \"repairtype_id\" ) VALUES (?,?,?,?)";
 
 		try (Connection conn = connect();
 				 PreparedStatement pstmt = conn.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS))
@@ -153,7 +154,7 @@ public class OrderDaoImpl implements OrderDao
 						"\"user_id_client\", " +
 						"\"user_id_tailor\", " +
 						"\"service_id\", " +
-						"\"clothe_type_id\", " +
+						"\"clother_type_id\", " +
 						"\"cost\", " +
 						"\"complete\",  " +
 						"\"given_out\") " +
@@ -184,7 +185,7 @@ public class OrderDaoImpl implements OrderDao
 						"\"user_id_client\" = ?, " +
 						"\"user_id_tailor\" = ?, " +
 						"\"service_id\" = ?, " +
-						"\"clothe_type_id\" = ?, " +
+						"\"clother_type_id\" = ?, " +
 						"\"cost\" = ?, " +
 						"\"complete\" = ?,  " +
 						"\"given_out\" = ? " +
@@ -253,7 +254,7 @@ public class OrderDaoImpl implements OrderDao
 	private void getSewingOrdersByUserId(Integer id, List<TableDataOrder> tableDataOrders)
 	{
 		String SQL =
-						"select o.id order_id, o.tailor_assignment, c.name clothe_name, st.name servicetype_name, s.id service_id, sd.id servicedate_id, sd.measurements, sd.modeling, sd.pattern, sd.stitching, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join servicedates sd on service_date_id = sd.id inner join servicetypes st on service_type_id = st.id where u.id = ? and sd.id <> 0 order by o.id ASC";
+						"select o.id order_id, o.tailor_assignment, u.login, c.name clothe_name, c.id clothe_id, st.name servicetype_name, st.id servicetype_id, s.id service_id, sd.id servicedate_id, sd.measurements, sd.modeling, sd.pattern, sd.stitching, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on o.clother_type_id = c.id inner join servicedates sd on s.servicedate_id = sd.id inner join servicetypes st on s.servicetype_id = st.id where u.id = ? and sd.id <> 0 order by o.id ASC";
 
 
 		try (Connection conn = connect();
@@ -266,10 +267,13 @@ public class OrderDaoImpl implements OrderDao
 			while (rs.next())
 			{
 				TableDataOrder tableDataOrder = new TableDataOrder();
+				tableDataOrder.setClientLogin(rs.getString("login"));
 				tableDataOrder.setId(rs.getInt("order_id"));
 				tableDataOrder.setTailorAssignment(rs.getBoolean("tailor_assignment"));
 				tableDataOrder.setClotherType(rs.getString("clothe_name"));
+				tableDataOrder.setClotherTypeId(rs.getInt("clothe_id"));
 				tableDataOrder.setServiceType(rs.getString("servicetype_name"));
+				tableDataOrder.setServiceTypeId(rs.getInt("servicetype_id"));
 				tableDataOrder.setServiceId(rs.getInt("service_id"));
 				tableDataOrder.setRepairType("-");
 				tableDataOrder.setServiceDateId(rs.getInt("servicedate_id"));
@@ -292,7 +296,7 @@ public class OrderDaoImpl implements OrderDao
 	private void getRepairOrdersByUserId(Integer id, List<TableDataOrder> tableDataOrders)
 	{
 		String SQL =
-						"select o.id order_id, o.tailor_assignment, c.name clothe_name, st.name servicetype_name, s.id service_id, rt.name repairtype_name, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join repairtypes rt on repair_type_id = rt.id inner join servicetypes st on service_type_id = st.id where u.id = ? and repair_type_id <> 0 order by o.id ASC";
+						"select o.id order_id, o.tailor_assignment, u.login, c.name clothe_name, c.id clothe_id, st.name servicetype_name, st.id servicetype_id, s.id service_id, rt.name repairtype_name, rt.id repaiertype_id, o.cost, o.complete, o.given_out from orders o inner join services s on o.service_id = s.id inner join users u on o.user_id_client = u.id inner join clothetypes as c on o.clother_type_id = c.id inner join repairtypes rt on s.repairtype_id = rt.id inner join servicetypes st on s.servicetype_id = st.id where u.id = ? and s.repairtype_id <> 0 order by o.id ASC";
 
 
 		try (Connection conn = connect();
@@ -305,12 +309,16 @@ public class OrderDaoImpl implements OrderDao
 			while (rs.next())
 			{
 				TableDataOrder tableDataOrder = new TableDataOrder();
+				tableDataOrder.setClientLogin(rs.getString("login"));
 				tableDataOrder.setId(rs.getInt("order_id"));
 				tableDataOrder.setTailorAssignment(rs.getBoolean("tailor_assignment"));
 				tableDataOrder.setClotherType(rs.getString("clothe_name"));
+				tableDataOrder.setClotherTypeId(rs.getInt("clothe_id"));
 				tableDataOrder.setServiceId(rs.getInt("service_id"));
 				tableDataOrder.setServiceType(rs.getString("servicetype_name"));
+				tableDataOrder.setServiceTypeId(rs.getInt("servicetype_id"));
 				tableDataOrder.setRepairType(rs.getString("repairtype_name"));
+				tableDataOrder.setRepairTypeId(rs.getInt("repaiertype_id"));
 				tableDataOrder.setMeasurements("-");
 				tableDataOrder.setModeling("-");
 				tableDataOrder.setPattern("-");
@@ -339,7 +347,7 @@ public class OrderDaoImpl implements OrderDao
 	private void getSewingOrdersByOrderId(Integer id, List<TableDataOrder> tableDataOrders)
 	{
 		String SQL =
-						"select o.id order_id, o.tailor_assignment, c.id clothe_id, st.id servicetype_id, s.id service_id, sd.id servicedate_id, sd.measurements, sd.modeling, sd.pattern, sd.stitching, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join servicedates sd on service_date_id = sd.id inner join servicetypes st on service_type_id = st.id where o.id = ? and sd.id <> 0 order by o.id ASC";
+						"select o.id order_id, o.tailor_assignment, u.login, c.name clothe_name, c.id clothe_id, st.name servicetype_name, st.id servicetype_id, s.id service_id, sd.id servicedate_id, sd.measurements, sd.modeling, sd.pattern, sd.stitching, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on o.clother_type_id = c.id inner join servicedates sd on s.servicedate_id = sd.id inner join servicetypes st on s.servicetype_id = st.id where o.id = ? and sd.id <> 0 order by o.id ASC";
 
 
 		try (Connection conn = connect();
@@ -352,9 +360,12 @@ public class OrderDaoImpl implements OrderDao
 			while (rs.next())
 			{
 				TableDataOrder tableDataOrder = new TableDataOrder();
+				tableDataOrder.setClientLogin(rs.getString("login"));
 				tableDataOrder.setId(rs.getInt("order_id"));
 				tableDataOrder.setTailorAssignment(rs.getBoolean("tailor_assignment"));
+				tableDataOrder.setClotherType(rs.getString("clothe_name"));
 				tableDataOrder.setClotherTypeId(rs.getInt("clothe_id"));
+				tableDataOrder.setServiceType(rs.getString("servicetype_name"));
 				tableDataOrder.setServiceTypeId(rs.getInt("servicetype_id"));
 				tableDataOrder.setServiceId(rs.getInt("service_id"));
 				tableDataOrder.setRepairType("-");
@@ -378,7 +389,7 @@ public class OrderDaoImpl implements OrderDao
 	private void getRepairOrdersByOrderId(Integer id, List<TableDataOrder> tableDataOrders)
 	{
 		String SQL =
-						"select o.id order_id, o.tailor_assignment, c.id clothe_id, st.id servicetype_id, s.id service_id, rt.id repairtype_id, o.cost, o.complete, o.given_out from orders o inner join services s on service_id = s.id inner join users u on user_id_client = u.id inner join clothetypes as c on clothe_type_id = c.id inner join repairtypes rt on repair_type_id = rt.id inner join servicetypes st on service_type_id = st.id where o.id = ? and repair_type_id <> 0 order by o.id ASC";
+						"select o.id order_id, o.tailor_assignment, u.login, c.name clothe_name, c.id clothe_id, st.name servicetype_name, st.id servicetype_id, s.id service_id, rt.name repairtype_name, rt.id repaiertype_id, o.cost, o.complete, o.given_out from orders o inner join services s on o.service_id = s.id inner join users u on o.user_id_client = u.id inner join clothetypes as c on o.clother_type_id = c.id inner join repairtypes rt on s.repairtype_id = rt.id inner join servicetypes st on s.servicetype_id = st.id where o.id = ? and s.repairtype_id <> 0 order by o.id ASC";
 
 
 		try (Connection conn = connect();
@@ -391,12 +402,16 @@ public class OrderDaoImpl implements OrderDao
 			while (rs.next())
 			{
 				TableDataOrder tableDataOrder = new TableDataOrder();
+				tableDataOrder.setClientLogin(rs.getString("login"));
 				tableDataOrder.setId(rs.getInt("order_id"));
 				tableDataOrder.setTailorAssignment(rs.getBoolean("tailor_assignment"));
+				tableDataOrder.setClotherType(rs.getString("clothe_name"));
 				tableDataOrder.setClotherTypeId(rs.getInt("clothe_id"));
 				tableDataOrder.setServiceId(rs.getInt("service_id"));
+				tableDataOrder.setServiceType(rs.getString("servicetype_name"));
 				tableDataOrder.setServiceTypeId(rs.getInt("servicetype_id"));
-				tableDataOrder.setRepairTypeId(rs.getInt("repairtype_id"));
+				tableDataOrder.setRepairType(rs.getString("repairtype_name"));
+				tableDataOrder.setRepairTypeId(rs.getInt("repaiertype_id"));
 				tableDataOrder.setMeasurements("-");
 				tableDataOrder.setModeling("-");
 				tableDataOrder.setPattern("-");

@@ -1,6 +1,6 @@
 
 
-package ru.studio.api.model.table;
+package com.example.androidstudio.model.table;
 
 import java.io.Serializable;
 
@@ -32,4 +32,5 @@ public class TableDataOrder implements Serializable
 	private Boolean complete;
 	private Double cost;
 	private Boolean givenOut;
+	private String clientLogin;
 }

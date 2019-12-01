@@ -10,8 +10,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import ru.studio.api.model.footwear.FootwearType;
-import ru.studio.api.services.AdvancedService;
+import com.example.androidstudio.model.footwear.FootwearType;
+import com.example.androidstudio.services.AdvancedService;
+
 import ru.studio.server.service.AdvancedServiceImpl;
 
 public class ConApp

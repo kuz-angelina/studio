@@ -1,10 +1,10 @@
-package ru.studio.api.services;
+package com.example.androidstudio.services;
 
 import java.util.List;
 
-import ru.studio.api.model.UserDto;
-import ru.studio.api.model.role.User;
-import ru.studio.api.model.role.UserType;
+import com.example.androidstudio.model.UserDto;
+import com.example.androidstudio.model.role.User;
+import com.example.androidstudio.model.role.UserType;
 
 /**
  * @author Angelina Kuzmina

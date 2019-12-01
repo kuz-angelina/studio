@@ -1,8 +1,9 @@
-package ru.studio.api.model.role;
+package com.example.androidstudio.model.role;
+
+import com.example.androidstudio.model.UserDto;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.studio.api.model.UserDto;
 
 /**
  * @author Angelina Kuzmina

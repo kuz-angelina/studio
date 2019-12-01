@@ -4,10 +4,10 @@ package ru.studio.server.dao;
 
 import java.util.List;
 
-import ru.studio.api.model.Order;
-import ru.studio.api.model.service.Service;
-import ru.studio.api.model.service.ServiceDate;
-import ru.studio.api.model.table.TableDataOrder;
+import com.example.androidstudio.model.Order;
+import com.example.androidstudio.model.service.Service;
+import com.example.androidstudio.model.service.ServiceDate;
+import com.example.androidstudio.model.table.TableDataOrder;
 
 /**
  * @author Angelina Kuzmina

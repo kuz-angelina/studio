@@ -2,14 +2,20 @@
 
 package ru.studio.server.dao;
 
-import ru.studio.api.model.role.User;
+import java.util.List;
+
+import com.example.androidstudio.model.UserDto;
+import com.example.androidstudio.model.role.User;
+import com.example.androidstudio.model.role.UserType;
 
 
 public interface UserDao
 {
-	User getUserByLogin(String name);
+	UserDto getUserByLogin(String name);
 
-	User getUserById(Long id);
+	User getUserById(int id);
+
+	List<UserType> getAllUserType();
 
 	void createUser(User user);
 }
